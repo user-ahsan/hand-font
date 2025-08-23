@@ -1,0 +1,276 @@
+# ===========================================
+# HAND-FONT PROJECT - COMPREHENSIVE .GITIGNORE
+# ===========================================
+
+# ===========================================
+# DEPENDENCIES & PACKAGE MANAGERS
+# ===========================================
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.lock-wscript
+
+# ===========================================
+# ENVIRONMENT & CONFIGURATION
+# ===========================================
+# Environment variables (keep .env.example)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging
+.env.*.local
+
+# Configuration overrides
+*.config.local.js
+*.config.local.ts
+*.config.local.json
+
+# ===========================================
+# BUILD OUTPUTS & DISTRIBUTION
+# ===========================================
+# Next.js
+.next/
+out/
+.next-env.d.ts
+
+# General build outputs
+dist/
+build/
+lib/
+es/
+cjs/
+umd/
+
+# TypeScript compilation
+*.tsbuildinfo
+*.d.ts.map
+
+# ===========================================
+# DEVELOPMENT & DEVELOPMENT TOOLS
+# ===========================================
+# TypeScript
+*.tsbuildinfo
+*.d.ts.map
+
+# ESLint
+.eslintcache
+.eslintcache.*
+
+# Prettier
+.prettierignore
+
+# Stylelint
+.stylelintcache
+
+# Jest
+coverage/
+.nyc_output/
+*.lcov
+junit.xml
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Storybook
+.storybook-static/
+storybook-static/
+
+# ===========================================
+# CACHE & TEMPORARY FILES
+# ===========================================
+# Various bundler caches
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.webpack/
+.vite/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ===========================================
+# LOGS & DEBUGGING
+# ===========================================
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===========================================
+# DATABASE & PRISMA
+# ===========================================
+# Prisma
+prisma/migrations/
+/generated/prisma
+prisma/generated/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.sqlite-shm
+*.sqlite-wal
+
+# ===========================================
+# EDITOR & IDE FILES
+# ===========================================
+# VS Code
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===========================================
+# OPERATING SYSTEM FILES
+# ===========================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===========================================
+# SECURITY & SENSITIVE FILES
+# ===========================================
+# API keys and secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.pwd
+
+# SSH keys
+id_rsa
+id_rsa.pub
+*.ppk
+
+# ===========================================
+# PROJECT-SPECIFIC EXCLUSIONS
+# ===========================================
+# Font generation outputs
+generated-fonts/
+font-outputs/
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Temporary uploads
+uploads/
+temp-uploads/
+*.upload
+
+# Local development overrides
+.local
+local/
+local-*
+
+# ===========================================
+# MONOREPO & WORKSPACE
+# ===========================================
+# Workspace files
+*.tgz
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ===========================================
+# DEPLOYMENT & CI/CD
+# ===========================================
+# Deployment artifacts
+.deploy/
+deploy/
+*.tar.gz
+*.zip
+
+# CI/CD
+.ci/
+.cache/

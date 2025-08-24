@@ -2,6 +2,8 @@
 
 A full-stack application for generating and managing custom handwritten fonts with AI-powered tools. This project combines a Node.js/Express backend with a Next.js frontend to create a comprehensive font generation platform.
 
+**✨ Developer Experience**: Start both servers with a single `npm run dev` command using concurrent execution.
+
 ## 📋 Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -68,14 +70,15 @@ cd ..
 ### 5. Start Development Servers
 
 ```bash
-# Start backend server (in one terminal)
-cd backend
-npm run dev
-
-# Start frontend server (in another terminal)
-cd frontend
+# Start both servers with a single command
 npm run dev
 ```
+
+This will automatically start:
+- **Backend server** on port 3001 (with nodemon for auto-reload)
+- **Frontend server** on port 3000 (Next.js development server)
+
+Both servers run concurrently using the `concurrently` package.
 
 ## 🖥️ Platform-Specific Setup
 
@@ -282,26 +285,24 @@ kill -9 <PID>
 
 ### Root Commands
 ```bash
-# Install all dependencies
-npm run install:all
-
-# Run tests for all packages
-npm run test:all
-
-# Build all packages
-npm run build:all
-
-# Lint all packages
-npm run lint:all
-
-# Start both servers
+# 🚀 MAIN COMMAND - Start both servers
 npm run dev
 
-# Start only backend
-npm run dev:server
+# Individual server commands (if needed)
+npm run dev:server    # Start only backend server
+npm run dev:client    # Start only frontend server
 
-# Start only frontend
-npm run dev:client
+# Database commands
+npm run db:generate   # Generate Prisma client
+npm run db:push       # Push schema to database
+npm run db:migrate    # Run database migrations
+npm run db:studio     # Open Prisma Studio
+
+# Other commands (if implemented)
+npm run install:all   # Install all dependencies
+npm run test:all      # Run tests for all packages
+npm run build:all     # Build all packages
+npm run lint:all      # Lint all packages
 ```
 
 ### Backend Commands

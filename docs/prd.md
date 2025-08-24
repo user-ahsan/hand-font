@@ -81,6 +81,66 @@ flowchart TD
 
 ---
 
+## 4.1. Paid User Flow
+
+```mermaid
+flowchart TD
+    A[Paid User Logs In] --> B[Access Dashboard]
+    B --> C[View Font Library]
+    C --> D[Previously Created Fonts]
+    D --> E[Font Management Options]
+    E --> F{Action Choice}
+    
+    F -->|Create New Font| G[Start New Font Creation]
+    F -->|Edit Existing Font| H[Select Font to Edit]
+    F -->|Download Font| I[Choose Format & Download]
+    F -->|Share Font| J[Generate Share Link]
+    F -->|Delete Font| K[Confirm Deletion]
+    
+    G --> L[Follow Standard User Flow]
+    H --> M[Load Font Data]
+    M --> N[Edit Specific Letters]
+    N --> O[Regenerate Font]
+    O --> P[Update in Library]
+    
+    I --> Q[Select Export Format]
+    Q --> R[Download Font Files]
+    
+    J --> S[Create Shareable Link]
+    S --> T[Copy Link to Clipboard]
+    
+    K --> U[Remove from Library]
+    U --> V[Update Dashboard]
+    
+    L --> W[Save to Font Library]
+    P --> W
+    R --> X[Track Download History]
+    T --> Y[Track Share Analytics]
+    V --> Z[Update Storage Quota]
+    
+    style A fill:#4caf50
+    style B fill:#2196f3
+    style C fill:#ff9800
+    style D fill:#9c27b0
+    style W fill:#4caf50
+    style X fill:#ff9800
+    style Y fill:#2196f3
+    style Z fill:#f44336
+```
+
+**Paid User Features:**
+- **Dashboard Access:** Centralized management interface
+- **Font Library:** Store unlimited previously created fonts
+- **Font Management:** Edit, delete, organize, and categorize fonts
+- **Multiple Export Formats:** TTF, OTF, WOFF, SVG, and more
+- **Download History:** Track all font downloads and usage
+- **Share & Collaboration:** Generate shareable links for fonts
+- **Storage Quota:** Manage font storage and organization
+- **Bulk Operations:** Export multiple fonts simultaneously
+- **Font Analytics:** View usage statistics and performance metrics
+
+---
+
 ## 5. MVP Features
 
 - Guided handwriting capture via pangram

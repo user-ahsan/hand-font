@@ -1,210 +1,246 @@
-# Product Requirement Document (PRD) – v1.2
+# Product Requirements Document (PRD)
+## HandFont – AI-Powered Handwritten Font Generator
 
-## Project Name
-**HandFont – AI-Powered Handwritten Font Generator**
-
-**Owner:** Ahsan Ali  
-**Version:** 1.0
-**Date:** August 2025
-
----
-
-## 1. Goal
-
-Allow users to generate custom handwritten fonts using AI, with a guided sentence-based handwriting capture system instead of photo uploads.
+**Document Version:** 1.2  
+**Last Updated:** August 2025  
+**Document Owner:** Ahsan Ali  
+**Stakeholders:** Development Team, Design Team, Product Management  
 
 ---
 
-## 2. Core Value Proposition
+## Table of Contents
+1. [Executive Summary](#1-executive-summary)
+2. [Product Overview](#2-product-overview)
+3. [Target Users](#3-target-users)
+4. [User Experience Flows](#4-user-experience-flows)
+5. [Product Features](#5-product-features)
+6. [Technical Specifications](#6-technical-specifications)
+7. [Business Model](#7-business-model)
+8. [Success Criteria](#8-success-criteria)
 
-- Anyone can create a personalized digital font in minutes.
-- No scanner required — handwriting captured directly in the app.
-- AI automates vectorization and font generation.
-- Preview before export ensures quality.
+---
+
+## 1. Executive Summary
+
+### 1.1 Product Vision
+HandFont enables users to create personalized digital fonts from their handwriting using AI-powered guided capture technology. The platform eliminates the need for scanners or complex design software, making font creation accessible to everyone.
+
+### 1.2 Key Value Propositions
+- **Accessibility:** Create professional fonts in minutes without design expertise
+- **Direct Capture:** Handwriting captured in-app, no external hardware required
+- **AI Automation:** Intelligent vectorization and font generation
+- **Quality Assurance:** Preview and edit capabilities before final export
+
+---
+
+## 2. Product Overview
+
+### 2.1 Core Functionality
+HandFont uses a guided sentence-based approach where users draw individual characters through an interactive canvas interface. The AI system processes these drawings to generate complete, professional-grade font files.
+
+### 2.2 Technology Approach
+- **Guided Handwriting Capture:** Structured character-by-character input
+- **AI Pattern Recognition:** Machine learning for glyph analysis and generation
+- **Vector Processing:** Automated stroke optimization and alignment
+- **Font Generation:** Industry-standard font file creation
 
 ---
 
 ## 3. Target Users
 
-- Designers needing unique fonts
-- Students and hobbyists digitizing handwriting
-- Content creators for personal branding
-- Businesses wanting corporate identity fonts
+### 3.1 Primary Users
+- **Design Professionals:** Graphic designers, typographers, and creative agencies
+- **Content Creators:** Social media influencers, bloggers, and digital marketers
+- **Educational Users:** Students, teachers, and academic institutions
+- **Business Users:** Companies seeking branded typography solutions
+
+### 3.2 User Characteristics
+- **Skill Level:** Beginner to intermediate design experience
+- **Use Case:** Personal branding, professional projects, educational content
+- **Technical Comfort:** Basic computer literacy, mobile device proficiency
 
 ---
 
-## 4. User Flow
+## 4. User Experience Flows
+
+### 4.1 Core User Flow
 
 ```mermaid
 flowchart TD
-    A[User Enters App] --> B[System Introduces Process]
-    B --> C[Show Pangram: 'The quick brown fox jumps over the lazy dog']
-    C --> D[Display First Letter 'a']
-    D --> E[Canvas Box for Drawing 'a']
-    E --> F[User Draws Letter]
-    F --> G[Click Next]
-    G --> H[Display Next Element 'fox']
-    H --> I[Separate Canvas Boxes for 'f', 'o', 'x']
-    I --> J[User Draws Each Letter]
-    J --> K{All Letters Covered?}
-    K -->|No| L[Continue to Next Element]
-    L --> I
-    K -->|Yes| M[AI Maps Drawn Glyphs to Characters]
-    M --> N[AI Vectorizes & Smooths Strokes]
-    N --> O[Generate Preview in User's Handwriting]
-    O --> P[User Reviews Preview]
-    P --> Q{Approve Font?}
-    Q -->|No| R[Redraw Specific Letters]
-    R --> I
-    Q -->|Yes| S[AI Generates Font Files: TTF, OTF, WOFF]
-    S --> T[User Downloads/Exports Font]
-    T --> U[Save Font to Account]
+    A[User Enters App] --> B[System Introduction]
+    B --> C[Display Pangram: 'The quick brown fox jumps over the lazy dog']
+    C --> D[Present First Character: 'a']
+    D --> E[Canvas Drawing Interface]
+    E --> F[User Handwrites Character]
+    F --> G[Progress to Next Character]
+    G --> H{All Characters Complete?}
+    H -->|No| I[Continue Character Capture]
+    I --> E
+    H -->|Yes| J[Capture Numerals & Symbols]
+    J --> K[AI Pattern Generation]
+    K --> L[Glyph Mapping & Processing]
+    L --> M[Vectorization & Optimization]
+    M --> N[Preview Generation]
+    N --> O[User Review & Approval]
+    O --> P{Approve Font?}
+    P -->|No| Q[Edit Specific Characters]
+    Q --> E
+    P -->|Yes| R[Font File Generation]
+    R --> S[Download & Save]
     
-    style A fill:#e1f5fe
-    style U fill:#c8e6c9
-    style S fill:#fff3e0
-    style O fill:#f3e5f5
+    style A fill:#e3f2fd
+    style S fill:#e8f5e8
+    style R fill:#fff3e0
+    style N fill:#f3e5f5
 ```
 
-**Detailed Steps:**
-1. System introduces process (guided handwriting capture).
-2. User is shown a pangram sentence: "The quick brown fox jumps over the lazy dog".
-3. First element appears (e.g., letter 'a'). A canvas box below prompts the user to hand-draw 'a'.
-4. User clicks 'Next'. Next element (e.g., word 'fox') appears. Beneath it, separate boxes for 'f', 'o', and 'x'. User draws each letter individually.
-5. This continues until the whole sentence is covered, ensuring all letters are collected.
-6. AI maps each drawn glyph to its typed reference (from pangram).
-7. AI processes drawings: vectorizes strokes, aligns glyphs, and smooths curves.
-8. Preview: system renders sample sentences in user's handwriting.
-9. User either approves or redraws specific letters.
-10. If approved, AI generates font files (TTF, OTF, WOFF).
-11. User downloads/exports font or saves in account.
+#### 4.1.1 Detailed Process Steps
+1. **System Introduction:** Guided tour of the handwriting capture process
+2. **Pangram Display:** Show complete sentence for character coverage
+3. **Character Capture:** Individual letter drawing with canvas interface
+4. **Progressive Flow:** Sequential character collection until completion
+5. **Numerical & Symbol Capture:** Guided input for numbers 1-5 and basic symbols
+6. **AI Pattern Generation:** Automatic creation of missing numerals (6-10) and additional symbols
+7. **Glyph Processing:** AI mapping and character reference alignment
+8. **Vector Optimization:** Stroke vectorization, alignment, and curve smoothing
+9. **Preview Generation:** Sample text rendering in user's handwriting style
+10. **Quality Review:** User approval or character-specific editing
+11. **Font Generation:** Creation of industry-standard font files (TTF, OTF, WOFF)
+12. **Export & Storage:** Download functionality and account-based saving
 
----
-
-## 4.1. Paid User Flow
+### 4.2 Premium User Flow
 
 ```mermaid
 flowchart TD
-    A[Paid User Logs In] --> B[Access Dashboard]
-    B --> C[View Font Library]
-    C --> D[Previously Created Fonts]
-    D --> E[Font Management Options]
-    E --> F{Action Choice}
+    A[Premium User Login] --> B[Dashboard Access]
+    B --> C[Font Library Management]
+    C --> D[Font Collection Overview]
+    D --> E[Action Selection Interface]
+    E --> F{User Action Choice}
     
-    F -->|Create New Font| G[Start New Font Creation]
-    F -->|Edit Existing Font| H[Select Font to Edit]
-    F -->|Download Font| I[Choose Format & Download]
-    F -->|Share Font| J[Generate Share Link]
-    F -->|Delete Font| K[Confirm Deletion]
+    F -->|Create New Font| G[New Font Creation Flow]
+    F -->|Edit Existing Font| H[Font Selection & Loading]
+    F -->|Download Font| I[Format Selection & Export]
+    F -->|Delete Font| J[Deletion Confirmation]
     
-    G --> L[Follow Standard User Flow]
-    H --> M[Load Font Data]
-    M --> N[Edit Specific Letters]
-    N --> O[Regenerate Font]
-    O --> P[Update in Library]
+    G --> K[Standard Creation Process]
+    H --> L[Font Data Loading]
+    L --> M[Character Editing Interface]
+    M --> N[Font Regeneration]
+    N --> O[Library Update]
     
-    I --> Q[Select Export Format]
-    Q --> R[Download Font Files]
+    I --> P[Export Format Selection]
+    P --> Q[Font File Download]
     
-    J --> S[Create Shareable Link]
-    S --> T[Copy Link to Clipboard]
+    J --> R[Font Removal Process]
+    R --> S[Dashboard Update]
     
-    K --> U[Remove from Library]
-    U --> V[Update Dashboard]
-    
-    L --> W[Save to Font Library]
-    P --> W
-    R --> X[Track Download History]
-    T --> Y[Track Share Analytics]
-    V --> Z[Update Storage Quota]
+    K --> T[Font Library Storage]
+    O --> T
+    Q --> U[Download History Tracking]
+    S --> V[Storage Quota Update]
     
     style A fill:#4caf50
     style B fill:#2196f3
     style C fill:#ff9800
     style D fill:#9c27b0
-    style W fill:#4caf50
-    style X fill:#ff9800
-    style Y fill:#2196f3
-    style Z fill:#f44336
+    style T fill:#4caf50
+    style U fill:#ff9800
+    style V fill:#f44336
 ```
 
-**Paid User Features:**
-- **Dashboard Access:** Centralized management interface
-- **Font Library:** Store unlimited previously created fonts
-- **Font Management:** Edit, delete, organize, and categorize fonts
-- **Multiple Export Formats:** TTF, OTF, WOFF, SVG, and more
-- **Download History:** Track all font downloads and usage
-- **Share & Collaboration:** Generate shareable links for fonts
-- **Storage Quota:** Manage font storage and organization
-- **Bulk Operations:** Export multiple fonts simultaneously
-- **Font Analytics:** View usage statistics and performance metrics
+#### 4.2.1 Premium User Capabilities
+- **Dashboard Interface:** Centralized font management system
+- **Font Library:** Unlimited storage for created fonts
+- **Management Tools:** Edit, delete, organize, and categorize fonts
+- **Export Options:** Multiple format support (TTF, OTF, WOFF, SVG)
+- **Usage Tracking:** Download history and analytics
+- **Storage Management:** Quota monitoring and organization
+- **Bulk Operations:** Simultaneous export of multiple fonts
+- **Performance Metrics:** Usage statistics and font performance data
 
 ---
 
-## 5. MVP Features
+## 5. Product Features
 
-- Guided handwriting capture via pangram
-- Canvas drawing for each letter
-- AI mapping drawn glyphs → characters
-- Vectorization and smoothing
-- Preview renderer
-- Font file export
+### 5.1 Core Features (MVP)
+- **Guided Handwriting Capture:** Pangram-based character collection
+- **Interactive Canvas:** Real-time drawing interface for each character
+- **AI Glyph Mapping:** Intelligent character recognition and alignment
+- **Vector Processing:** Automated stroke optimization and smoothing
+- **Preview System:** Sample text rendering in user's handwriting
+- **Font Export:** Industry-standard font file generation
 
----
+### 5.2 Advanced Features (Future Releases)
+- **Custom Capture Sentences:** User-defined text for character collection
+- **Extended Character Support:** Complete numeral (0-9) and symbol coverage
+- **Style Filters:** Handwriting style variations (calligraphy, brush, marker)
+- **Collaboration Tools:** Team-based font creation and sharing
+- **Integration Plugins:** Canva, Figma, and Google Docs compatibility
+- **Developer API:** Third-party application integration
 
-## 6. Advanced Features (Future Phases)
+#### 5.2.1 Numerals and Symbols System
+- **Guided Capture Process:** Numbers 1-5 and basic symbols (+, -, *, /) captured through guided handwriting
+- **AI Pattern Generation:** Automatic creation of missing numerals (6-10) and additional symbols based on captured patterns
+- **Editing Capabilities:** Both free and premium users can redraw or edit any symbol or numeral
+- **Style Consistency:** AI maintains handwriting style uniformity across all generated characters
 
-- Custom capture sentences instead of fixed pangram
-- Support for ligatures, numerals, symbols
-- Handwriting style filters (calligraphy, brush, marker)
-- Collaborative font creation with friends/teams
-- Marketplace to sell/share fonts
-- Plugins for Canva, Figma, Google Docs
-- API for developers
-
----
-
-## 7. Non-Goals
-
-- OCR for handwriting recognition in full documents
-- Multi-language handwriting training in MVP
-- 3D pen/brush stroke simulation in MVP
-
----
-
-## 8. Tech Stack
-
-- **Frontend:** Next.js + Tailwind CSS (UI, canvas drawing, previews)
-- **Backend:** Node.js + Express (APIs, font export requests)
-- **Database:** PostgreSQL or MongoDB (user + font metadata)
-- **AI Layer:** Python service (glyph vectorization + font creation)
-- **Storage:** AWS S3 or Firebase (generated fonts)
-- **Auth:** JWT / Firebase Auth
-- **Payments:** Stripe, JazzCash, Easypaisa
+### 5.3 Non-Goals
+- **Document OCR:** Full document handwriting recognition
+- **Multi-language Support:** Non-English language training in MVP
+- **3D Simulation:** Advanced pen or brush stroke simulation
 
 ---
 
-## 9. Monetization
+## 6. Technical Specifications
 
-- **Freemium:** Free plan allows one font export
-- **Subscription:** Pro plans for unlimited font exports
-- **Marketplace:** Commission on font sales
-- **API Licensing:** 3rd-party apps can generate fonts via API
+### 6.1 Technology Stack
+- **Frontend Framework:** Next.js with Tailwind CSS
+- **Backend Services:** Node.js with Express.js
+- **Database System:** PostgreSQL for user and font metadata
+- **File Storage:** Firebase for generated font files
+- **Authentication:** Clerk for user management and security
+
+### 6.2 System Architecture
+- **Client-Side:** React-based canvas drawing and preview rendering
+- **Server-Side:** RESTful API endpoints for font processing
+- **Data Layer:** Relational database for structured data management
+- **Storage Layer:** Cloud-based file storage and retrieval
+- **Security Layer:** JWT-based authentication and authorization
+
+---
+
+## 7. Business Model
+
+### 7.1 Pricing Structure
+- **Free Tier:** Single font export in TTF format only
+- **Premium Plans:** Unlimited font exports in all formats (TTF, OTF, WOFF, SVG)
+
+### 7.2 Revenue Streams
+- **Subscription Revenue:** Monthly/annual premium plan subscriptions
+- **Feature Access:** Advanced functionality for premium users
+- **Storage Services:** Extended storage options for power users
 
 ---
 
-## 10. Success Metrics
+## 8. Success Criteria
 
-- Number of fonts generated per month
-- Average approval rate after preview
-- Conversion rate free → paid users
-- Marketplace activity (sales, shares)
+### 8.1 Product Metrics
+- **User Adoption:** Monthly active users and font creation rates
+- **Quality Metrics:** Font approval rates and user satisfaction scores
+- **Conversion Rates:** Free to premium user conversion percentages
+- **Performance Indicators:** Font generation speed and accuracy rates
+
+### 8.2 Business Metrics
+- **Revenue Growth:** Monthly recurring revenue and growth rates
+- **Customer Retention:** User retention and churn rates
+- **Market Penetration:** User acquisition and market share metrics
 
 ---
 
-## 11. Roadmap
+## Document Control
 
-- **Phase 1:** MVP: guided pangram flow, font generation, single export
-- **Phase 2:** Add ligatures, numerals, marketplace
-
----
+**Document Status:** Final Draft  
+**Next Review Date:** September 2025  
+**Approval Required:** Product Manager, Technical Lead  
+**Distribution:** Development Team, Design Team, Stakeholders

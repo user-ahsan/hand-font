@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD)
 ## HandFont – AI-Powered Handwritten Font Generator
 
-**Document Version:** 1.2  
+**Document Version:** 1.3
 **Last Updated:** August 2025  
 **Document Owner:** Ahsan Ali  
 **Stakeholders:** Development Team, Design Team, Product Management  

@@ -11,6 +11,56 @@
 - **Framer Motion**: 11.0.0 (Latest major)
 - **Node.js**: 22.0.0 (Latest LTS)
 
+## 🎨 **DESIGN SYSTEM INTEGRATION - CRITICAL**
+
+**MANDATORY: All components MUST align with design.json specifications**
+
+### **Design System Requirements:**
+- ✅ **CSS Variables**: Use `--bg`, `--fg`, `--border`, `--card`, `--primary`, etc.
+- ✅ **Light/Dark Mode**: Implement both themes using CSS variables
+- ✅ **Color Tokens**: Use exact colors from design.json palette
+- ✅ **Typography**: Use specified font families and sizing
+- ✅ **Spacing**: Use space scale from design.json (0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64)
+- ✅ **Shadows**: Use specified shadow tokens (sm, md, lg, xl)
+- ✅ **Border Radius**: Use specified radius tokens (sm, md, lg, xl, 2xl, 3xl, full)
+- ✅ **Motion**: Use specified duration and easing tokens
+
+### **Recursive Design Validation:**
+**BEFORE implementing ANY component, validate:**
+1. Does it use CSS variables from design.json?
+2. Does it support both light and dark modes?
+3. Does it follow the spacing scale?
+4. Does it use the correct color tokens?
+5. Does it implement the specified motion tokens?
+6. Does it follow the component specifications from design.json?
+
+---
+
+## 🎨 **DESIGN SYSTEM INTEGRATION - CRITICAL**
+
+**MANDATORY: All components MUST align with design.json specifications**
+
+### **Design System Requirements:**
+- ✅ **CSS Variables**: Use `--bg`, `--fg`, `--border`, `--card`, `--primary`, etc.
+- ✅ **Light/Dark Mode**: Implement both themes using CSS variables
+- ✅ **Color Tokens**: Use exact colors from design.json palette
+- ✅ **Typography**: Use specified font families and sizing
+- ✅ **Spacing**: Use space scale from design.json (0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64)
+- ✅ **Shadows**: Use specified shadow tokens (sm, md, lg, xl)
+- ✅ **Border Radius**: Use specified radius tokens (sm, md, lg, xl, 2xl, 3xl, full)
+- ✅ **Motion**: Use specified duration and easing tokens
+
+### **Recursive Design Validation:**
+**BEFORE implementing ANY component, validate:**
+1. Does it use CSS variables from design.json?
+2. Does it support both light and dark modes?
+3. Does it follow the spacing scale?
+4. Does it use the correct color tokens?
+5. Does it implement the specified motion tokens?
+6. Does it follow the component specifications from design.json?
+
+---
+
 ## 🎯 **AI AGENT INSTRUCTIONS - READ CAREFULLY**
 
 **CRITICAL RULES TO FOLLOW:**
@@ -23,6 +73,8 @@
 7. **Implement mobile-first responsive design**
 8. **Use TypeScript strictly** - no `any` types allowed
 9. **ALL WORK MUST BE DONE IN THE ROOT DIRECTORY** - this is a monorepo setup
+10. **MANDATORY: All components MUST use design.json specifications**
+10. **MANDATORY: All components MUST use design.json specifications**
 
 ---
 
@@ -205,7 +257,7 @@ backend/
 - [ ] 2.4 Install dev dependencies: `npm install -D prettier@^3.3.0 prettier-plugin-tailwindcss@^0.5.0`
 - [ ] 2.5 Create frontend directory structure as specified above
 - [ ] 2.6 Configure TypeScript (strict mode)
-- [ ] 2.7 Configure Tailwind CSS with custom theme
+- [ ] 2.7 Configure Tailwind CSS with design.json theme integration
 - [ ] 2.8 Set up ESLint and Prettier configs
 
 ### **Task 3: Backend Project Setup**
@@ -217,33 +269,64 @@ backend/
 - [ ] 3.6 Configure TypeScript
 - [ ] 3.7 Set up nodemon for development
 
-### **Task 4: shadcn/ui Setup**
+### **Task 4: shadcn/ui Setup & Design System Integration**
 - [ ] 4.1 Navigate to frontend directory: `cd frontend/`
 - [ ] 4.2 Initialize shadcn/ui: `npx shadcn@latest init`
-- [ ] 4.3 Configure shadcn/ui with your preferences
+- [ ] 4.3 Configure shadcn/ui with design.json preferences
 - [ ] 4.4 Install required components: `npx shadcn@latest add button toast slider tabs`
+- [ ] 4.5 Create design system CSS variables file (frontend/src/styles/design-system.css)
+- [ ] 4.6 Integrate design.json color tokens into Tailwind config
+- [ ] 4.7 Set up ThemeProvider for light/dark mode switching
+- [ ] 4.8 Validate all components use CSS variables from design.json
 
 ---
 
 ## 🎨 **PHASE 2: CORE COMPONENTS DEVELOPMENT**
 
 ### **Task 5: Basic UI Components (frontend/src/components/ui/)**
-- [ ] 5.1 Create PrimaryButton component using shadcn/ui Button
-- [ ] 5.2 Create SecondaryButton component variant
-- [ ] 5.3 Create Toast component using shadcn/ui Toast
+**DESIGN VALIDATION: Each component MUST use design.json specifications**
+
+- [ ] 5.1 Create PrimaryButton component using shadcn/ui Button with design.json variants
+  - **Validate**: Uses `--primary`, `--primaryFg`, `--ring` CSS variables
+  - **Validate**: Implements light/dark mode support
+  - **Validate**: Uses spacing scale from design.json
+- [ ] 5.2 Create SecondaryButton component variant with design.json styling
+  - **Validate**: Uses `--secondary`, `--secondaryFg` CSS variables
+  - **Validate**: Follows button sizing from design.json
+- [ ] 5.3 Create Toast component using shadcn/ui Toast with design.json theming
+  - **Validate**: Uses `--card`, `--border`, `--destructive` CSS variables
+  - **Validate**: Implements proper z-index from design.json
 - [ ] 5.4 Create StepNav component with progress indicators (●○○ style)
+  - **Validate**: Uses `--muted`, `--primary` CSS variables
+  - **Validate**: Follows spacing scale from design.json
 - [ ] 5.5 Create GlyphPrompt component for letter display
-- [ ] 5.6 Create basic layout components (Container, Grid)
+  - **Validate**: Uses `--card`, `--cardFg` CSS variables
+  - **Validate**: Implements typography from design.json
+- [ ] 5.6 Create basic layout components (Container, Grid) with design.json integration
+  - **Validate**: Uses container gutters from design.json
+  - **Validate**: Implements responsive breakpoints from design.json
 
 ### **Task 6: Canvas Drawing Components (frontend/src/components/canvas/)**
-- [ ] 6.1 Create DrawBox component with HTML5 Canvas
-- [ ] 6.2 Implement pen/eraser toggle functionality
+**DESIGN VALIDATION: Canvas components MUST use design.json canvas specifications**
+
+- [ ] 6.1 Create DrawBox component with HTML5 Canvas using design.json theming
+  - **Validate**: Uses `--canvas`, `--canvasBackground`, `--border` CSS variables
+  - **Validate**: Implements canvas grid from design.json
+  - **Validate**: Uses proper shadows and borders from design.json
+- [ ] 6.2 Implement pen/eraser toggle functionality with design.json styling
+  - **Validate**: Uses `--primary`, `--muted` CSS variables
+  - **Validate**: Implements proper focus states from design.json
 - [ ] 6.3 Add undo/redo functionality with keyboard shortcuts
+  - **Validate**: Uses `--ring` CSS variable for focus indicators
+  - **Validate**: Follows motion tokens from design.json
 - [ ] 6.4 Implement clear canvas functionality
 - [ ] 6.5 Add basic smoothing algorithm (Ramer-Douglas-Peucker)
 - [ ] 6.6 Create light guides (baseline and x-height) with toggle
+  - **Validate**: Uses `--canvasGrid` CSS variable
+  - **Validate**: Implements proper opacity from design.json
 - [ ] 6.7 Implement point recording with timestamps
-- [ ] 6.8 Add pen width selection (small/medium/large)
+- [ ] 6.8 Add pen width selection (small/medium/large) with design.json sizing
+  - **Validate**: Uses spacing scale from design.json
 
 ---
 
@@ -266,18 +349,36 @@ backend/
 - Auto-sizing algorithms for optimal user experience
 
 ### **Task 7: Dynamic Drawing Component (frontend/src/components/canvas/)**
+**DESIGN VALIDATION: Dynamic components MUST use design.json responsive specifications**
+
 - [ ] 7.1 Create DynamicDrawRow component for variable letter counts
+  - **Validate**: Uses `--card`, `--border` CSS variables
+  - **Validate**: Implements responsive grid from design.json
 - [ ] 7.2 Implement dynamically allocated DrawBox components based on letter count
+  - **Validate**: Uses `--canvas`, `--canvasBackground` CSS variables
+  - **Validate**: Follows spacing scale from design.json
 - [ ] 7.3 Add individual save/clear for each letter dynamically
+  - **Validate**: Uses `--primary`, `--destructive` CSS variables
+  - **Validate**: Implements proper button sizing from design.json
 - [ ] 7.4 Implement responsive layout that adapts to any number of letters
+  - **Validate**: Uses container gutters from design.json
+  - **Validate**: Implements responsive breakpoints from design.json
 - [ ] 7.5 Add validation for dynamic step completion
 - [ ] 7.6 Make boxes resizable and responsive to content
 - [ ] 7.7 Implement auto-sizing based on letter complexity
 
 ### **Task 8: Dynamic Pangram Drawing Component (frontend/src/components/canvas/)**
+**DESIGN VALIDATION: Pangram component MUST use design.json typography specifications**
+
 - [ ] 8.1 Create DynamicSentenceDraw component for variable sentence lengths
+  - **Validate**: Uses typography tokens from design.json
+  - **Validate**: Implements proper font families from design.json
 - [ ] 8.2 Implement dynamically allocated canvas areas based on sentence structure
+  - **Validate**: Uses `--canvas`, `--card` CSS variables
+  - **Validate**: Follows spacing scale from design.json
 - [ ] 8.3 Add flexible sentence display that adapts to any text input
+  - **Validate**: Uses `--fg`, `--mutedFg` CSS variables
+  - **Validate**: Implements typography sizing from design.json
 - [ ] 8.4 Implement dynamic character-by-character capture system
 - [ ] 8.5 Add progress tracking for dynamic sentence completion
 - [ ] 8.6 Create adaptive character mapping system
@@ -285,8 +386,14 @@ backend/
 - [ ] 8.8 Make canvas areas resizable based on character complexity
 
 ### **Task 9: Dynamic Numerals & Symbols Components (frontend/src/components/canvas/)**
+**DESIGN VALIDATION: Numerals/Symbols MUST use design.json symbol specifications**
+
 - [ ] 9.1 Create DynamicNumberCapture component for variable number ranges
+  - **Validate**: Uses `--card`, `--border` CSS variables
+  - **Validate**: Implements proper spacing from design.json
 - [ ] 9.2 Create DynamicSymbolCapture component for variable symbol sets
+  - **Validate**: Uses `--accent`, `--accentFg` CSS variables
+  - **Validate**: Follows symbol palette from design.json
 - [ ] 9.3 Implement guided capture for any number/symbol dynamically
 - [ ] 9.4 Add validation and progress tracking for dynamic sets
 - [ ] 9.5 Create AI pattern generation placeholder
@@ -299,59 +406,129 @@ backend/
 ## 📱 **PHASE 4: PAGE COMPONENTS & LAYOUT**
 
 ### **Task 10: App Shell & Navigation (frontend/src/components/layout/)**
-- [ ] 10.1 Create AppShell component with header/footer
-- [ ] 10.2 Implement responsive navigation
+**DESIGN VALIDATION: Layout components MUST use design.json layout specifications**
+
+- [ ] 10.1 Create AppShell component with header/footer using design.json theming
+  - **Validate**: Uses `--bg`, `--fg`, `--border` CSS variables
+  - **Validate**: Implements proper shadows from design.json
+- [ ] 10.2 Implement responsive navigation with design.json styling
+  - **Validate**: Uses `--panel`, `--panelFg` CSS variables
+  - **Validate**: Implements navigation tokens from design.json
 - [ ] 10.3 Add logo and branding elements
-- [ ] 10.4 Create mobile menu functionality
-- [ ] 10.5 Implement breadcrumb navigation
+- [ ] 10.4 Create mobile menu functionality with design.json theming
+  - **Validate**: Uses `--overlay` z-index from design.json
+  - **Validate**: Implements proper backdrop blur from design.json
+- [ ] 10.5 Implement breadcrumb navigation with design.json styling
+  - **Validate**: Uses `--mutedFg`, `--fg` CSS variables
+  - **Validate**: Follows typography from design.json
 
 ### **Task 11: Landing Page (frontend/src/app/(guest)/page.tsx)**
-- [ ] 11.1 Create landing page component
-- [ ] 11.2 Add concise introduction text
-- [ ] 11.3 Implement Start button with proper routing
-- [ ] 11.4 Add responsive design for mobile/desktop
-- [ ] 11.5 Implement smooth transitions and animations
+**DESIGN VALIDATION: Landing page MUST use design.json hero specifications**
+
+- [ ] 11.1 Create landing page component with design.json theming
+  - **Validate**: Uses `--bg`, `--fg`, `--primary` CSS variables
+  - **Validate**: Implements gradient background from design.json
+- [ ] 11.2 Add concise introduction text with design.json typography
+  - **Validate**: Uses typography tokens from design.json
+  - **Validate**: Implements proper line heights from design.json
+- [ ] 11.3 Implement Start button with proper routing and design.json styling
+  - **Validate**: Uses `--primary`, `--primaryFg` CSS variables
+  - **Validate**: Implements button variants from design.json
+- [ ] 11.4 Add responsive design for mobile/desktop using design.json breakpoints
+  - **Validate**: Uses container gutters from design.json
+  - **Validate**: Implements responsive spacing from design.json
+- [ ] 11.5 Implement smooth transitions and animations using design.json motion tokens
+  - **Validate**: Uses duration and easing from design.json
+  - **Validate**: Implements spring animations from design.json
 
 ### **Task 12: Capture Wizard Page (frontend/src/app/(guest)/capture/page.tsx)**
-- [ ] 12.1 Create capture wizard page structure
-- [ ] 12.2 Implement tab-based navigation (Letters → FOX → Pangram)
-- [ ] 12.3 Add step validation and progression
-- [ ] 12.4 Implement responsive layout (mobile: stack, desktop: 2-column)
-- [ ] 12.5 Add progress indicators and step navigation
+**DESIGN VALIDATION: Wizard page MUST use design.json form specifications**
+
+- [ ] 12.1 Create capture wizard page structure with design.json theming
+  - **Validate**: Uses `--card`, `--cardFg` CSS variables
+  - **Validate**: Implements proper shadows from design.json
+- [ ] 12.2 Implement tab-based navigation (Letters → FOX → Pangram) with design.json styling
+  - **Validate**: Uses `--muted`, `--card` CSS variables
+  - **Validate**: Implements tab tokens from design.json
+- [ ] 12.3 Add step validation and progression with design.json feedback
+  - **Validate**: Uses `--success`, `--warning` CSS variables
+  - **Validate**: Implements proper states from design.json
+- [ ] 12.4 Implement responsive layout (mobile: stack, desktop: 2-column) using design.json
+  - **Validate**: Uses responsive breakpoints from design.json
+  - **Validate**: Implements container gutters from design.json
+- [ ] 12.5 Add progress indicators and step navigation with design.json styling
+  - **Validate**: Uses `--primary`, `--muted` CSS variables
+  - **Validate**: Implements progress tokens from design.json
 
 ---
 
 ## 🔧 **PHASE 5: PREVIEW & EXPORT FUNCTIONALITY**
 
 ### **Task 13: Preview Panel Component (frontend/src/components/canvas/)**
-- [ ] 13.1 Create PreviewPanel component
-- [ ] 13.2 Implement textarea for custom text input
-- [ ] 13.3 Add live preview rendering with captured letters
-- [ ] 13.4 Create spacing controls (font size, letter spacing, line height)
-- [ ] 13.5 Implement slider components for controls
-- [ ] 13.6 Add real-time preview updates
+**DESIGN VALIDATION: Preview panel MUST use design.json preview specifications**
+
+- [ ] 13.1 Create PreviewPanel component with design.json theming
+  - **Validate**: Uses `--card`, `--cardFg` CSS variables
+  - **Validate**: Implements proper borders from design.json
+- [ ] 13.2 Implement textarea for custom text input with design.json styling
+  - **Validate**: Uses `--input` CSS variables from design.json
+  - **Validate**: Implements proper focus states from design.json
+- [ ] 13.3 Add live preview rendering with captured letters using design.json typography
+  - **Validate**: Uses typography tokens from design.json
+  - **Validate**: Implements proper font rendering from design.json
+- [ ] 13.4 Create spacing controls (font size, letter spacing, line height) with design.json
+  - **Validate**: Uses `--slider` CSS variables from design.json
+  - **Validate**: Implements control tokens from design.json
+- [ ] 13.5 Implement slider components for controls using design.json styling
+  - **Validate**: Uses `--primary`, `--muted` CSS variables
+  - **Validate**: Implements slider tokens from design.json
+- [ ] 13.6 Add real-time preview updates with design.json animations
+  - **Validate**: Uses motion tokens from design.json
+  - **Validate**: Implements proper transitions from design.json
 
 ### **Task 14: Preview Page (frontend/src/app/(guest)/preview/page.tsx)**
-- [ ] 14.1 Create preview page component
-- [ ] 14.2 Integrate PreviewPanel component
-- [ ] 14.3 Add Generate button functionality
+**DESIGN VALIDATION: Preview page MUST use design.json page specifications**
+
+- [ ] 14.1 Create preview page component with design.json theming
+  - **Validate**: Uses `--bg`, `--fg` CSS variables
+  - **Validate**: Implements page wrapper from design.json
+- [ ] 14.2 Integrate PreviewPanel component with design.json validation
+- [ ] 14.3 Add Generate button functionality with design.json styling
+  - **Validate**: Uses `--primary`, `--primaryFg` CSS variables
+  - **Validate**: Implements button variants from design.json
 - [ ] 14.4 Implement API call to backend
-- [ ] 14.5 Add loading states and error handling
-- [ ] 14.6 Implement success/failure routing
+- [ ] 14.5 Add loading states and error handling with design.json feedback
+  - **Validate**: Uses `--loading` CSS variables from design.json
+  - **Validate**: Implements proper states from design.json
+- [ ] 14.6 Implement success/failure routing with design.json theming
+  - **Validate**: Uses `--success`, `--destructive` CSS variables
+  - **Validate**: Implements feedback tokens from design.json
 
 ### **Task 15: Export Page (frontend/src/app/(guest)/export/page.tsx)**
-- [ ] 15.1 Create export page component
-- [ ] 15.2 Add Download TTF button
+**DESIGN VALIDATION: Export page MUST use design.json export specifications**
+
+- [ ] 15.1 Create export page component with design.json theming
+  - **Validate**: Uses `--card`, `--cardFg` CSS variables
+  - **Validate**: Implements proper layout from design.json
+- [ ] 15.2 Add Download TTF button with design.json styling
+  - **Validate**: Uses `--primary`, `--primaryFg` CSS variables
+  - **Validate**: Implements button variants from design.json
 - [ ] 15.3 Implement file download functionality
-- [ ] 15.4 Add Retry button with routing back to capture
-- [ ] 15.5 Implement success states and feedback
+- [ ] 15.4 Add Retry button with routing back to capture using design.json styling
+  - **Validate**: Uses `--secondary`, `--secondaryFg` CSS variables
+  - **Validate**: Implements button variants from design.json
+- [ ] 15.5 Implement success states and feedback with design.json theming
+  - **Validate**: Uses `--success` CSS variables
+  - **Validate**: Implements feedback tokens from design.json
 
 ---
 
 ## 🎯 **PHASE 6: STATE MANAGEMENT & INTEGRATION**
 
 ### **Task 16: Zustand Store Implementation (frontend/src/stores/)**
-- [ ] 16.1 Create font capture store
+**DESIGN VALIDATION: Store state MUST align with design.json data specifications**
+
+- [ ] 16.1 Create font capture store with design.json data structure
 - [ ] 16.2 Implement letter storage and management
 - [ ] 16.3 Add FOX step state management
 - [ ] 16.4 Implement pangram progress tracking
@@ -360,88 +537,118 @@ backend/
 - [ ] 16.7 Add session management and reset functionality
 
 ### **Task 17: API Integration (frontend/src/lib/api/)**
+**DESIGN VALIDATION: API responses MUST use design.json data specifications**
+
 - [ ] 17.1 Create API service functions
 - [ ] 17.2 Implement font generation API calls
-- [ ] 17.3 Add error handling and retry logic
-- [ ] 17.4 Implement loading states
-- [ ] 17.5 Add success/failure notifications
+- [ ] 17.3 Add error handling and retry logic with design.json feedback
+- [ ] 17.4 Implement loading states using design.json loading tokens
+- [ ] 17.5 Add success/failure notifications with design.json theming
 
 ### **Task 18: Data Persistence (frontend/src/lib/storage/)**
+**DESIGN VALIDATION: Storage MUST use design.json persistence specifications**
+
 - [ ] 18.1 Implement localStorage persistence
 - [ ] 18.2 Add autosave functionality
 - [ ] 18.3 Create session management
 - [ ] 18.4 Implement reset session functionality
-- [ ] 18.5 Add storage validation and error handling
+- [ ] 18.5 Add storage validation and error handling with design.json feedback
 
 ---
 
 ## 📱 **PHASE 7: RESPONSIVE DESIGN & MOBILE OPTIMIZATION**
 
 ### **Task 19: Mobile-First Responsiveness (frontend/src/app/globals.css)**
-- [ ] 19.1 Implement mobile-first grid system
-- [ ] 19.2 Add responsive breakpoints (mobile, tablet, desktop)
+**DESIGN VALIDATION: Responsive design MUST use design.json breakpoint specifications**
+
+- [ ] 19.1 Implement mobile-first grid system using design.json spacing
+  - **Validate**: Uses space scale from design.json
+  - **Validate**: Implements container gutters from design.json
+- [ ] 19.2 Add responsive breakpoints (mobile, tablet, desktop) from design.json
+  - **Validate**: Uses breakpoint tokens from design.json
+  - **Validate**: Implements responsive spacing from design.json
 - [ ] 19.3 Optimize touch interactions for mobile
-- [ ] 19.4 Implement mobile-specific navigation
+- [ ] 19.4 Implement mobile-specific navigation with design.json theming
 - [ ] 19.5 Add mobile gesture support
 
 ### **Task 20: Touch & Pointer Optimization (frontend/src/components/canvas/)**
-- [ ] 20.1 Optimize canvas for touch devices
-- [ ] 20.2 Implement touch-friendly controls
+**DESIGN VALIDATION: Touch components MUST use design.json touch specifications**
+
+- [ ] 20.1 Optimize canvas for touch devices using design.json touch tokens
+- [ ] 20.2 Implement touch-friendly controls with design.json sizing
+  - **Validate**: Uses touch-friendly sizing from design.json
+  - **Validate**: Implements proper touch feedback from design.json
 - [ ] 20.3 Add touch gesture support
-- [ ] 20.4 Optimize button sizes for mobile
-- [ ] 20.5 Implement touch feedback
+- [ ] 20.4 Optimize button sizes for mobile using design.json mobile tokens
+- [ ] 20.5 Implement touch feedback with design.json motion tokens
 
 ---
 
 ## ♿ **PHASE 8: ACCESSIBILITY & TESTING**
 
 ### **Task 21: Accessibility Implementation**
+**DESIGN VALIDATION: Accessibility MUST use design.json a11y specifications**
+
 - [ ] 21.1 Add ARIA labels to all interactive elements
-- [ ] 21.2 Implement keyboard navigation
-- [ ] 21.3 Add focus management and visible focus rings
+- [ ] 21.2 Implement keyboard navigation with design.json focus tokens
+  - **Validate**: Uses `--ring` CSS variables from design.json
+  - **Validate**: Implements focus indicators from design.json
+- [ ] 21.3 Add focus management and visible focus rings using design.json
 - [ ] 21.4 Implement screen reader support
-- [ ] 21.5 Add color contrast validation
-- [ ] 21.6 Implement reduced motion support
+- [ ] 21.5 Add color contrast validation using design.json color tokens
+- [ ] 21.6 Implement reduced motion support using design.json motion tokens
 
 ### **Task 22: Error Handling & Validation**
-- [ ] 22.1 Add empty canvas validation
-- [ ] 22.2 Implement error states for failed operations
-- [ ] 22.3 Add localStorage full error handling
-- [ ] 22.4 Create user-friendly error messages
-- [ ] 22.5 Implement retry mechanisms
+**DESIGN VALIDATION: Error states MUST use design.json error specifications**
+
+- [ ] 22.1 Add empty canvas validation with design.json feedback
+- [ ] 22.2 Implement error states for failed operations using design.json styling
+  - **Validate**: Uses `--destructive`, `--destructiveFg` CSS variables
+  - **Validate**: Implements error tokens from design.json
+- [ ] 22.3 Add localStorage full error handling with design.json theming
+- [ ] 22.4 Create user-friendly error messages using design.json typography
+- [ ] 22.5 Implement retry mechanisms with design.json button styling
 
 ### **Task 23: Testing & Quality Assurance**
-- [ ] 23.1 Write unit tests for core components
+**DESIGN VALIDATION: Testing MUST validate design.json compliance**
+
+- [ ] 23.1 Write unit tests for core components with design.json validation
 - [ ] 23.2 Test drawing functionality on desktop and mobile
 - [ ] 23.3 Test state persistence and session management
-- [ ] 23.4 Test responsive design across devices
-- [ ] 23.5 Test accessibility features
-- [ ] 23.6 Perform cross-browser testing
+- [ ] 23.4 Test responsive design across devices using design.json breakpoints
+- [ ] 23.5 Test accessibility features using design.json a11y specifications
+- [ ] 23.6 Perform cross-browser testing with design.json compatibility
 
 ---
 
 ## 🚀 **PHASE 9: FINAL INTEGRATION & POLISH**
 
 ### **Task 24: Performance Optimization**
+**DESIGN VALIDATION: Performance MUST maintain design.json quality standards**
+
 - [ ] 24.1 Optimize canvas rendering performance
 - [ ] 24.2 Implement lazy loading for components
-- [ ] 24.3 Add loading states and skeleton screens
+- [ ] 24.3 Add loading states and skeleton screens using design.json loading tokens
 - [ ] 24.4 Optimize bundle size
 - [ ] 24.5 Implement code splitting
 
 ### **Task 25: Final Testing & Bug Fixes**
+**DESIGN VALIDATION: Final testing MUST ensure design.json compliance**
+
 - [ ] 25.1 End-to-end testing of complete user flow
 - [ ] 25.2 Test all user scenarios and edge cases
 - [ ] 25.3 Fix any identified bugs
 - [ ] 25.4 Performance testing on various devices
-- [ ] 25.5 Accessibility audit and fixes
+- [ ] 25.5 Accessibility audit and fixes using design.json a11y specifications
 
 ### **Task 26: Documentation & Deployment Prep**
-- [ ] 26.1 Create component documentation
+**DESIGN VALIDATION: Documentation MUST reference design.json specifications**
+
+- [ ] 26.1 Create component documentation with design.json references
 - [ ] 26.2 Document API integration points
 - [ ] 26.3 Create deployment checklist
 - [ ] 26.4 Prepare production build
-- [ ] 26.5 Final code review and cleanup
+- [ ] 26.5 Final code review and cleanup with design.json validation
 
 ---
 
@@ -509,7 +716,15 @@ npm run dev:backend
 14. **Auto-sizing algorithms** - boxes should resize based on content complexity
 15. **NO hardcoded box counts** - everything must be flexible and adaptive
 
-**Remember:** This is a production application - quality and testing are paramount!
+### **🎨 MANDATORY DESIGN SYSTEM COMPLIANCE**
+16. **ALL components MUST use design.json CSS variables** - no hardcoded colors
+17. **Light and dark mode MUST be implemented** using CSS variables
+18. **Spacing MUST follow design.json scale** - no arbitrary spacing values
+19. **Typography MUST use design.json tokens** - no arbitrary font sizes
+20. **Motion MUST use design.json duration/easing** - no arbitrary animations
+21. **EACH component MUST be validated** against design.json before completion
+
+**Remember:** This is a production application - quality, testing, and design system compliance are paramount!
 
 **File Structure Must Be Exact:** Follow the directory structure precisely as specified above. All components, pages, and utilities must be placed in their designated folders.
 
@@ -539,3 +754,6 @@ npm run dev:backend
 - **Real-time preview system**
 - **Accessibility compliant**
 - **PWA ready**
+- **Design system compliant (design.json)**
+- **Light/dark mode support**
+- **CSS variable theming**

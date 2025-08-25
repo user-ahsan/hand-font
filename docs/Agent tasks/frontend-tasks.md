@@ -36,28 +36,35 @@
 
 ---
 
-## 🎨 **DESIGN SYSTEM INTEGRATION - CRITICAL**
+## 🏗️ **COMPONENT ORGANIZATION RULES - CRITICAL**
 
-**MANDATORY: All components MUST align with design.json specifications**
+### **STRICT DIRECTORY STRUCTURE ENFORCEMENT**
+- **ui/**: shadcn/ui components ONLY (installed via `npx shadcn@latest add [component-name]`)
+- **magicui/**: Magic UI components ONLY (installed via `npx shadcn@latest add "https://magicui.design/r/[component-name]"`)
+- **handfont/**: Custom HandFont-specific components ONLY (created manually)
+- **layout/**: Layout and structural components ONLY
+- **forms/**: Form-related components ONLY
 
-### **Design System Requirements:**
-- ✅ **CSS Variables**: Use `--bg`, `--fg`, `--border`, `--card`, `--primary`, etc.
-- ✅ **Light/Dark Mode**: Implement both themes using CSS variables
-- ✅ **Color Tokens**: Use exact colors from design.json palette
-- ✅ **Typography**: Use specified font families and sizing
-- ✅ **Spacing**: Use space scale from design.json (0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64)
-- ✅ **Shadows**: Use specified shadow tokens (sm, md, lg, xl)
-- ✅ **Border Radius**: Use specified radius tokens (sm, md, lg, xl, 2xl, 3xl, full)
-- ✅ **Motion**: Use specified duration and easing tokens
+### **COMPONENT PLACEMENT RULES**
+1. **shadcn/ui Components** → `frontend/src/components/ui/[component-name]/`
+2. **Magic UI Components** → `frontend/src/components/magicui/[component-name]/`
+3. **Custom HandFont Components** → `frontend/src/components/handfont/[ComponentName].tsx`
+4. **Layout Components** → `frontend/src/components/layout/[ComponentName].tsx`
+5. **Form Components** → `frontend/src/components/forms/[ComponentName].tsx`
 
-### **Recursive Design Validation:**
-**BEFORE implementing ANY component, validate:**
-1. Does it use CSS variables from design.json?
-2. Does it support both light and dark modes?
-3. Does it follow the spacing scale?
-4. Does it use the correct color tokens?
-5. Does it implement the specified motion tokens?
-6. Does it follow the component specifications from design.json?
+### **FILE NAMING ENFORCEMENT**
+- **shadcn/ui**: Use exact names from CLI installation (e.g., `button`, `card`)
+- **Magic UI**: Use exact names from CLI installation (e.g., `interactive-hover-button`)
+- **Custom Components**: Use PascalCase (e.g., `ProBadge.tsx`, `DrawingCanvas.tsx`)
+- **Index Files**: Always named `index.ts` (lowercase)
+- **Type Files**: `ComponentName.types.ts` (PascalCase)
+
+### **ABSOLUTELY FORBIDDEN**
+- ❌ Creating new directories outside the established structure
+- ❌ Moving files between component categories
+- ❌ Creating duplicate components
+- ❌ Creating placeholder files
+- ❌ Using external component libraries not in components.json
 
 ---
 
@@ -74,7 +81,9 @@
 8. **Use TypeScript strictly** - no `any` types allowed
 9. **ALL WORK MUST BE DONE IN THE ROOT DIRECTORY** - this is a monorepo setup
 10. **MANDATORY: All components MUST use design.json specifications**
-10. **MANDATORY: All components MUST use design.json specifications**
+11. **MANDATORY: All components MUST follow the new directory structure** - ui/, magicui/, handfont/, layout/, forms/
+12. **MANDATORY: Use components.json for component installation** - no external libraries without approval
+13. **MANDATORY: Create components in EXACT directories** - no deviations from established structure
 
 ---
 
@@ -121,7 +130,10 @@ frontend/
 ├── package.json
 ├── next.config.js
 ├── tailwind.config.js
+├── postcss.config.js
 ├── tsconfig.json
+├── components.json          # Component library configuration
+├── design.json             # Design system tokens
 ├── public/
 ├── src/
 │   ├── app/
@@ -141,12 +153,35 @@ frontend/
 │   │   │           └── page.tsx (Font Detail)
 │   │   ├── layout.tsx (Root Layout)
 │   │   └── globals.css
-│   ├── components/
-│   │   ├── ui/ (shadcn/ui components)
-│   │   ├── canvas/ (Drawing components)
-│   │   ├── layout/ (Layout components)
-│   │   ├── forms/ (Form components)
-│   │   └── shared/ (Shared components)
+│   ├── components/         # React components (ORGANIZED BY CATEGORY)
+│   │   ├── ui/            # shadcn/ui components (installed via CLI)
+│   │   │   ├── index.ts   # Export all shadcn/ui components
+│   │   │   ├── button/    # Button component
+│   │   │   ├── card/      # Card component
+│   │   │   └── ...        # Other shadcn/ui components
+│   │   ├── magicui/       # Magic UI components (installed via CLI)
+│   │   │   ├── index.ts   # Export all Magic UI components
+│   │   │   ├── interactive-hover-button/  # Interactive button
+│   │   │   ├── magic-card/                 # Magic card
+│   │   │   └── ...                         # Other Magic UI components
+│   │   ├── handfont/      # Custom HandFont components
+│   │   │   ├── index.ts   # Export all custom components
+│   │   │   ├── ProBadge.tsx        # Pro user badge
+│   │   │   ├── DrawingCanvas.tsx   # Main drawing interface
+│   │   │   ├── Toolbar.tsx         # Drawing tools
+│   │   │   └── ...                 # Other custom components
+│   │   ├── layout/        # Layout components
+│   │   │   ├── index.ts   # Export all layout components
+│   │   │   ├── Container.tsx       # Responsive container
+│   │   │   ├── Sidebar.tsx         # Navigation sidebar
+│   │   │   └── ...                 # Other layout components
+│   │   ├── forms/         # Form components
+│   │   │   ├── index.ts   # Export all form components
+│   │   │   ├── Form.tsx            # Form wrapper
+│   │   │   ├── FormField.tsx       # Form field wrapper
+│   │   │   └── ...                 # Other form components
+│   │   ├── index.ts       # Main export file (re-exports all)
+│   │   └── README.md      # Component documentation
 │   ├── hooks/ (Custom hooks)
 │   ├── lib/ (Utilities and configs)
 │   ├── stores/ (Zustand stores)
@@ -239,6 +274,71 @@ backend/
   }
 }
 ```
+
+---
+
+## 🔧 **COMPONENT INSTALLATION WORKFLOW - CRITICAL**
+
+### **shadcn/ui Components Installation**
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install components
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add label
+npx shadcn@latest add badge
+npx shadcn@latest add tabs
+npx shadcn@latest add dialog
+npx shadcn@latest add dropdown-menu
+npx shadcn@latest add toast
+npx shadcn@latest add progress
+npx shadcn@latest add separator
+npx shadcn@latest add avatar
+npx shadcn@latest add switch
+npx shadcn@latest add select
+npx shadcn@latest add textarea
+npx shadcn@latest add checkbox
+npx shadcn@latest add radio-group
+npx shadcn@latest add slider
+npx shadcn@latest add pagination
+npx shadcn@latest add table
+npx shadcn@latest add alert
+npx shadcn@latest add skeleton
+npx shadcn@latest add tooltip
+npx shadcn@latest add popover
+npx shadcn@latest add sheet
+npx shadcn@latest add accordion
+npx shadcn@latest add calendar
+npx shadcn@latest add command
+npx shadcn@latest add navigation-menu
+npx shadcn@latest add scroll-area
+npx shadcn@latest add collapsible
+```
+
+### **Magic UI Components Installation**
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install components
+npx shadcn@latest add "https://magicui.design/r/interactive-hover-button"
+npx shadcn@latest add "https://magicui.design/r/magic-card"
+npx shadcn@latest add "https://magicui.design/r/text-animate"
+npx shadcn@latest add "https://magicui.design/r/hyper-text"
+npx shadcn@latest add "https://magicui.design/r/shimmer-button"
+npx shadcn@latest add "https://magicui.design/r/terminal"
+npx shadcn@latest add "https://magicui.design/r/bento-grid"
+```
+
+### **Custom Component Creation Rules**
+- **HandFont Components**: Create in `frontend/src/components/handfont/[ComponentName].tsx`
+- **Layout Components**: Create in `frontend/src/components/layout/[ComponentName].tsx`
+- **Form Components**: Create in `frontend/src/components/forms/[ComponentName].tsx`
+- **Index Files**: Always create `index.ts` in each directory to export components
+- **Type Files**: Create `[ComponentName].types.ts` for complex component types
 
 ---
 
@@ -724,9 +824,54 @@ npm run dev:backend
 20. **Motion MUST use design.json duration/easing** - no arbitrary animations
 21. **EACH component MUST be validated** against design.json before completion
 
+### **🏗️ MANDATORY COMPONENT STRUCTURE COMPLIANCE**
+22. **ALL components MUST be placed in EXACT directories** - ui/, magicui/, handfont/, layout/, forms/
+23. **shadcn/ui components MUST be installed via CLI** - `npx shadcn@latest add [component-name]`
+24. **Magic UI components MUST be installed via CLI** - `npx shadcn@latest add "https://magicui.design/r/[component-name]"`
+25. **Custom components MUST be created in handfont/ directory** - no exceptions
+26. **Index files MUST be created for each directory** - export all components properly
+27. **NO new directories outside established structure** - strict enforcement
+28. **File naming MUST follow exact conventions** - PascalCase for custom, lowercase for CLI components
+
 **Remember:** This is a production application - quality, testing, and design system compliance are paramount!
 
 **File Structure Must Be Exact:** Follow the directory structure precisely as specified above. All components, pages, and utilities must be placed in their designated folders.
+
+**Component Directory Structure Must Be Exact:**
+- **ui/**: shadcn/ui components ONLY (installed via CLI)
+- **magicui/**: Magic UI components ONLY (installed via CLI)  
+- **handfont/**: Custom HandFont components ONLY (created manually)
+- **layout/**: Layout components ONLY (created manually)
+- **forms/**: Form components ONLY (created manually)
+
+**NO DEVIATIONS ALLOWED** - All components must be placed in their exact designated directories.
+
+---
+
+## 📋 **UPDATED STRUCTURE SUMMARY**
+
+### **What Has Changed**
+✅ **Component Directory Structure**: Now organized into 5 strict categories (ui/, magicui/, handfont/, layout/, forms/)
+✅ **Installation Workflow**: Clear CLI commands for shadcn/ui and Magic UI components
+✅ **File Naming**: Strict conventions for each component type
+✅ **Export System**: Index files for proper component organization
+✅ **Design System**: Enhanced integration with design.json and components.json
+
+### **What Remains the Same**
+✅ **All Development Phases**: 9 phases remain unchanged
+✅ **All Task Requirements**: Same functionality and features
+✅ **All Design System Rules**: Same CSS variables and styling requirements
+✅ **All Quality Standards**: Same testing and validation requirements
+✅ **All Restrictions**: Same component usage and creation rules
+
+### **New Requirements Added**
+✅ **Directory Structure**: Must follow exact 5-category organization
+✅ **Component Installation**: Must use CLI commands for external components
+✅ **File Placement**: Must create components in exact designated directories
+✅ **Index Files**: Must create export files for each directory
+✅ **Naming Conventions**: Must follow exact file naming rules
+
+**The structure is now more robust and eliminates possibilities of hallucination, duplication, and multiple file creation while maintaining all existing functionality and quality standards.**
 
 ---
 
@@ -736,10 +881,17 @@ npm run dev:backend
 - **Framework**: Next.js 15.4.0-canary.74 + React 19.0.0
 - **Styling**: Tailwind CSS 3.4.0 + PostCSS 8.4.0
 - **State Management**: Zustand 4.5.0 + React Hook Form 7.51.0
-- **UI Components**: shadcn/ui + Radix UI (Latest)
+- **UI Components**: shadcn/ui + Magic UI + Radix UI (Latest)
 - **Animation**: Framer Motion 11.0.0
 - **Icons**: Lucide React 0.400.0
 - **Utilities**: clsx 2.1.0, tailwind-merge 2.2.0, class-variance-authority 0.7.0
+
+### **Component Architecture (Strict Organization)**
+- **shadcn/ui**: Professional UI components (installed via CLI)
+- **Magic UI**: Premium interactive components (installed via CLI)
+- **Custom HandFont**: Application-specific components (created manually)
+- **Layout**: Structural and navigation components (created manually)
+- **Forms**: User input and validation components (created manually)
 
 ### **Development Tools**
 - **Language**: TypeScript 5.5.0 (Strict mode)

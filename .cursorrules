@@ -1,0 +1,324 @@
+# Cursor Rules for HandFont App - Production Development Workflow
+
+## 🚨 CRITICAL: NO HALLUCINATION RULES
+
+### **ABSOLUTELY FORBIDDEN:**
+- ❌ Creating files that don't exist in the task specifications
+- ❌ Inventing new directories or folder structures
+- ❌ Adding dependencies not listed in package.json files
+- ❌ Creating new routes or endpoints not specified
+- ❌ Adding new database models not in Prisma schema
+- ❌ Creating new components not in the task list
+- ❌ Adding new pages not in the app directory structure
+- ❌ Implementing features not explicitly requested
+
+### **STRICT FILE STRUCTURE ENFORCEMENT:**
+- ✅ ONLY work with files that exist in the project
+- ✅ ONLY create files specified in the task requirements
+- ✅ Follow EXACT directory structure from task files
+- ✅ Use EXACT file names and paths specified
+- ✅ NO deviations from the established architecture
+
+## 🏗️ PROJECT ARCHITECTURE ENFORCEMENT
+
+### **Root Directory (hand-font/)**
+```
+hand-font/
+├── package.json (root with workspaces)
+├── frontend/ (Next.js 15.4.0-canary.74)
+├── backend/ (Node.js 22.0.0 + Express 5.0.0)
+├── docs/ (documentation only)
+└── README.md
+```
+
+### **Frontend Structure (frontend/)**
+```
+frontend/
+├── package.json
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── public/
+└── src/
+    ├── app/
+    │   ├── (guest)/
+    │   │   ├── page.tsx (Landing)
+    │   │   ├── capture/page.tsx (Capture Wizard)
+    │   │   ├── preview/page.tsx (Preview)
+    │   │   └── export/page.tsx (Export)
+    │   ├── (pro)/
+    │   │   ├── dashboard/page.tsx (Dashboard)
+    │   │   └── fonts/[id]/page.tsx (Font Detail)
+    │   ├── layout.tsx (Root Layout)
+    │   └── globals.css
+    ├── components/
+    │   ├── ui/ (shadcn/ui components)
+    │   ├── canvas/ (Drawing components)
+    │   ├── layout/ (Layout components)
+    │   ├── forms/ (Form components)
+    │   └── shared/ (Shared components)
+    ├── hooks/ (Custom hooks)
+    ├── lib/ (Utilities and configs)
+    ├── stores/ (Zustand stores)
+    ├── types/ (TypeScript types)
+    └── utils/ (Helper functions)
+```
+
+### **Backend Structure (backend/)**
+```
+backend/
+├── package.json
+├── tsconfig.json
+├── nodemon.json
+├── .env.example
+├── .env
+└── src/
+    ├── index.ts (Server entry point)
+    ├── app.ts (Express app configuration)
+    ├── config/
+    │   ├── database.ts (Database configuration)
+    │   ├── environment.ts (Environment variables)
+    │   └── cors.ts (CORS configuration)
+    ├── routes/
+    │   ├── index.ts (Route aggregator)
+    │   ├── auth.routes.ts (Authentication routes)
+    │   ├── font.routes.ts (Font generation routes)
+    │   ├── user.routes.ts (User management routes)
+    │   └── health.routes.ts (Health check routes)
+    ├── controllers/
+    │   ├── auth.controller.ts (Authentication logic)
+    │   ├── font.controller.ts (Font generation logic)
+    │   ├── user.controller.ts (User management logic)
+    │   └── health.controller.ts (Health check logic)
+    ├── services/
+    │   ├── font.service.ts (Font processing service)
+    │   ├── storage.service.ts (File storage service)
+    │   ├── auth.service.ts (Authentication service)
+    │   └── user.service.ts (User management service)
+    ├── middleware/
+    │   ├── auth.middleware.ts (JWT verification)
+    │   ├── validation.middleware.ts (Request validation)
+    │   ├── rateLimiter.middleware.ts (Rate limiting)
+    │   └── errorHandler.middleware.ts (Error handling)
+    ├── utils/
+    │   ├── logger.ts (Logging utility)
+    │   ├── validator.ts (Validation utilities)
+    │   ├── response.ts (Response formatting)
+    │   └── fileUtils.ts (File handling utilities)
+    ├── types/
+    │   ├── express.d.ts (Express type extensions)
+    │   ├── font.types.ts (Font-related types)
+    │   ├── user.types.ts (User-related types)
+    │   └── api.types.ts (API response types)
+    └── prisma/
+        ├── schema.prisma (Database schema)
+        └── migrations/ (Database migrations)
+```
+
+## 📚 DEPENDENCY ENFORCEMENT
+
+### **Root Dependencies (hand-font/package.json)**
+```json
+{
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+```
+
+### **Frontend Dependencies (frontend/package.json)**
+```json
+{
+  "dependencies": {
+    "next": "15.4.0-canary.74",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.5.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "@radix-ui/react-slot": "^1.0.0",
+    "@radix-ui/react-toast": "^1.1.0",
+    "@radix-ui/react-slider": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0",
+    "zustand": "^4.5.0",
+    "framer-motion": "^11.0.0",
+    "react-hook-form": "^7.51.0",
+    "lucide-react": "^0.400.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.4.0-canary.74",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.5.0"
+  }
+}
+```
+
+### **Backend Dependencies (backend/package.json)**
+```json
+{
+  "dependencies": {
+    "express": "^5.0.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "prisma": "^5.10.0",
+    "@prisma/client": "^5.10.0",
+    "clerk": "^0.0.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.0",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.0",
+    "express-rate-limit": "^8.0.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.0.0",
+    "@types/multer": "^1.4.11",
+    "@types/uuid": "^10.0.0",
+    "@types/compression": "^1.7.5",
+    "typescript": "^5.5.0",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.10.0"
+  }
+}
+```
+
+## 🎯 DEVELOPMENT LIFECYCLE ENFORCEMENT
+
+### **PHASE 1: PROJECT SETUP & FOUNDATION**
+1. Root project setup with workspaces
+2. Frontend Next.js 15 setup
+3. Backend Express 5 setup
+4. shadcn/ui initialization
+
+### **PHASE 2: CORE COMPONENTS DEVELOPMENT**
+1. Basic UI components (shadcn/ui based)
+2. Canvas drawing components (HTML5 Canvas)
+
+### **PHASE 3: SPECIALIZED DRAWING COMPONENTS**
+1. Dynamic drawing components (NO fixed sizes)
+2. Dynamic pangram drawing
+3. Dynamic numerals & symbols
+
+### **PHASE 4: PAGE COMPONENTS & LAYOUT**
+1. App shell & navigation
+2. Landing page
+3. Capture wizard page
+
+### **PHASE 5: PREVIEW & EXPORT FUNCTIONALITY**
+1. Preview panel component
+2. Preview page
+3. Export page
+
+### **PHASE 6: STATE MANAGEMENT & INTEGRATION**
+1. Zustand store implementation
+2. API integration
+3. Data persistence
+
+### **PHASE 7: RESPONSIVE DESIGN & MOBILE OPTIMIZATION**
+1. Mobile-first responsiveness
+2. Touch & pointer optimization
+
+### **PHASE 8: ACCESSIBILITY & TESTING**
+1. Accessibility implementation
+2. Error handling & validation
+3. Testing & quality assurance
+
+### **PHASE 9: FINAL INTEGRATION & POLISH**
+1. Performance optimization
+2. Final testing & bug fixes
+3. Documentation & deployment prep
+
+## 🔒 STRICT ENFORCEMENT RULES
+
+### **File Creation Rules:**
+- ✅ ONLY create files specified in the current task
+- ✅ NEVER create placeholder or temporary files
+- ✅ NEVER create "example" or "demo" files
+- ✅ NEVER create multiple versions of the same file
+- ✅ NEVER create backup or duplicate files
+
+### **Code Implementation Rules:**
+- ✅ ONLY implement features specified in the current task
+- ✅ NEVER add "bonus" or "extra" functionality
+- ✅ NEVER implement features from future phases
+- ✅ NEVER create "nice-to-have" features
+- ✅ NEVER add experimental or untested code
+
+### **Dependency Rules:**
+- ✅ ONLY use dependencies listed in package.json
+- ✅ NEVER add new npm packages
+- ✅ NEVER suggest alternative libraries
+- ✅ NEVER add polyfills or shims
+- ✅ NEVER add development tools not specified
+
+### **Architecture Rules:**
+- ✅ ONLY use the specified file structure
+- ✅ NEVER create new directories
+- ✅ NEVER reorganize existing structure
+- ✅ NEVER add new routing patterns
+- ✅ NEVER create new middleware layers
+
+## 🚨 ERROR PREVENTION
+
+### **Common Hallucination Patterns to Avoid:**
+1. **"Let me create a better version"** - NO, use existing structure
+2. **"I'll add some extra features"** - NO, stick to requirements
+3. **"This could be improved by"** - NO, implement as specified
+4. **"Let me create a helper"** - NO, unless explicitly requested
+5. **"I'll add some validation"** - NO, unless in current task
+
+### **File Naming Enforcement:**
+- ✅ Use EXACT names from task specifications
+- ✅ NO variations or alternatives
+- ✅ NO abbreviations or shortcuts
+- ✅ NO creative naming
+
+### **Import/Export Enforcement:**
+- ✅ Use EXACT import paths from task specifications
+- ✅ NO relative path variations
+- ✅ NO alias variations
+- ✅ NO dynamic imports unless specified
+
+## 📋 TASK COMPLETION VERIFICATION
+
+### **Before Marking Task Complete:**
+1. ✅ File exists in correct location
+2. ✅ File name matches exactly
+3. ✅ Content matches task requirements
+4. ✅ No extra features added
+5. ✅ No placeholder code
+6. ✅ No TODO comments
+7. ✅ No console.log statements
+8. ✅ No debugging code
+
+### **Code Quality Standards:**
+1. ✅ TypeScript strict mode compliance
+2. ✅ No `any` types
+3. ✅ Proper error handling
+4. ✅ Production-ready code
+5. ✅ No development artifacts
+6. ✅ Clean, readable code
+7. ✅ Proper documentation
+8. ✅ Accessibility compliance
+
+## 🎯 FINAL REMINDER
+
+**REMEMBER:** This is a production application with a strict development workflow. Every file, component, and feature must be exactly as specified in the task files. There is NO room for creativity, experimentation, or "improvements" beyond what is explicitly requested.
+
+**FOLLOW THE TASKS EXACTLY AS WRITTEN. NO DEVIATIONS. NO HALLUCINATIONS. NO EXTRA FEATURES.**
+
+The AI must work like a precise machine, implementing exactly what is specified and nothing more. This ensures consistency, reliability, and adherence to the production development standards.

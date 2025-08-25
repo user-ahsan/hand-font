@@ -1,7 +1,26 @@
+/*
+ * HandFont Application - Global CSS Styles
+ * 
+ * This file contains:
+ * 1. Tailwind CSS directives (@tailwind, @layer, @apply)
+ * 2. CSS custom properties (CSS variables) for theming
+ * 3. Component-specific styles using Tailwind utilities
+ * 4. Custom utility classes for consistent design system
+ * 
+ * Note: This file uses Tailwind CSS framework directives.
+ * Ensure your CSS linter is configured to recognize:
+ * - @tailwind (base, components, utilities)
+ * - @layer (base, components, utilities) 
+ * - @apply (Tailwind utility classes)
+ */
+
+/* Tailwind CSS directives - This file uses Tailwind CSS framework */
+/* For proper linting, ensure your CSS linter recognizes Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer for CSS variables */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -32,6 +51,7 @@
     --radius: 0.5rem;
   }
 
+  /* Dark mode variables */
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -61,40 +81,51 @@
   }
 }
 
+/* Base styles using Tailwind @apply directive */
 @layer base {
+  /* Apply border color to all elements */
   * {
     @apply border-border;
   }
+  /* Apply background and text colors to body */
   body {
     @apply bg-background text-foreground;
   }
 }
 
+/* Component styles using Tailwind @apply directive */
 @layer components {
+  /* Base button styles using Tailwind utilities */
   .btn {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
   }
 
+  /* Default button variant using Tailwind utilities */
   .btn-default {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4;
   }
 
+  /* Destructive button variant using Tailwind utilities */
   .btn-destructive {
     @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 py-2 px-4;
   }
 
+  /* Outline button variant using Tailwind utilities */
   .btn-outline {
     @apply border border-input hover:bg-accent hover:text-accent-foreground h-10 py-2 px-4;
   }
 
+  /* Secondary button variant using Tailwind utilities */
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-4;
   }
 
+  /* Ghost button variant using Tailwind utilities */
   .btn-ghost {
     @apply hover:bg-accent hover:text-accent-foreground h-10 py-2 px-4;
   }
 
+  /* Link button variant using Tailwind utilities */
   .btn-link {
     @apply underline-offset-4 hover:underline text-primary h-10 py-2 px-4;
   }
@@ -279,7 +310,7 @@
     @apply border-border;
   }
 
-  /* Animation classes aligned with design system */
+  /* Animation classes aligned with design system - Custom CSS transitions */
   .animate-fast {
     transition-duration: 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -307,7 +338,7 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Consistent spacing utilities */
+  /* Consistent spacing utilities - Custom CSS classes for design system */
   .space-0 { margin: 0px; }
   .space-2 { margin: 2px; }
   .space-4 { margin: 4px; }
@@ -355,6 +386,7 @@
   .shadow-none { box-shadow: none; }
 }
 
+/* Utility styles */
 @layer utilities {
   .text-balance {
     text-wrap: balance;

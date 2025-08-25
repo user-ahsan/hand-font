@@ -415,12 +415,35 @@ hand-font/
 │   │   │   ├── auth/       # Authentication
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
-│   │   ├── components/     # React components
-│   │   │   ├── CanvasBox.tsx
-│   │   │   ├── ExportButton.tsx
-│   │   │   ├── PreviewCard.tsx
-│   │   │   ├── ProBadge.tsx
-│   │   │   └── Toolbar.tsx
+│   │   ├── components/     # React components (ORGANIZED BY CATEGORY)
+│   │   │   ├── ui/         # shadcn/ui components (installed via CLI)
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── button/     # Button component
+│   │   │   │   ├── card/       # Card component
+│   │   │   │   └── ...         # Other shadcn/ui components
+│   │   │   ├── magicui/        # Magic UI components (installed via CLI)
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── interactive-hover-button/  # Interactive button
+│   │   │   │   ├── magic-card/                 # Magic card
+│   │   │   │   └── ...                         # Other Magic UI components
+│   │   │   ├── handfont/       # Custom HandFont components
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── ProBadge.tsx        # Pro user badge
+│   │   │   │   ├── DrawingCanvas.tsx   # Main drawing interface
+│   │   │   │   ├── Toolbar.tsx         # Drawing tools
+│   │   │   │   └── ...                 # Other custom components
+│   │   │   ├── layout/         # Layout components
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── Container.tsx       # Responsive container
+│   │   │   │   ├── Sidebar.tsx         # Navigation sidebar
+│   │   │   │   └── ...                 # Other layout components
+│   │   │   ├── forms/          # Form components
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── Form.tsx            # Form wrapper
+│   │   │   │   ├── FormField.tsx       # Form field wrapper
+│   │   │   │   └── ...                 # Other form components
+│   │   │   ├── index.ts        # Main export file (re-exports all)
+│   │   │   └── README.md       # Component documentation
 │   │   ├── hooks/          # Custom hooks
 │   │   │   ├── useCanvasStore.ts
 │   │   │   └── useFontStore.ts
@@ -432,6 +455,8 @@ hand-font/
 │   ├── next.config.js
 │   ├── tailwind.config.js
 │   ├── postcss.config.js
+│   ├── components.json     # Component library configuration
+│   ├── design.json         # Design system tokens
 │   └── tsconfig.json
 ├── prisma/                  # Database schema
 │   └── schema.prisma
@@ -439,6 +464,36 @@ hand-font/
 ├── .gitignore              # Git ignore rules
 └── README.md               # This file
 ```
+
+## 🎨 Component Organization Rules
+
+### **STRICT DIRECTORY STRUCTURE ENFORCEMENT**
+- **ui/**: shadcn/ui components ONLY (installed via `npx shadcn@latest add [component-name]`)
+- **magicui/**: Magic UI components ONLY (installed via `npx shadcn@latest add "https://magicui.design/r/[component-name]"`)
+- **handfont/**: Custom HandFont-specific components ONLY (created manually)
+- **layout/**: Layout and structural components ONLY
+- **forms/**: Form-related components ONLY
+
+### **COMPONENT PLACEMENT RULES**
+1. **shadcn/ui Components** → `frontend/src/components/ui/[component-name]/`
+2. **Magic UI Components** → `frontend/src/components/magicui/[component-name]/`
+3. **Custom HandFont Components** → `frontend/src/components/handfont/[ComponentName].tsx`
+4. **Layout Components** → `frontend/src/components/layout/[ComponentName].tsx`
+5. **Form Components** → `frontend/src/components/forms/[ComponentName].tsx`
+
+### **FILE NAMING ENFORCEMENT**
+- **shadcn/ui**: Use exact names from CLI installation (e.g., `button`, `card`)
+- **Magic UI**: Use exact names from CLI installation (e.g., `interactive-hover-button`)
+- **Custom Components**: Use PascalCase (e.g., `ProBadge.tsx`, `DrawingCanvas.tsx`)
+- **Index Files**: Always named `index.ts` (lowercase)
+- **Type Files**: `ComponentName.types.ts` (PascalCase)
+
+### **ABSOLUTELY FORBIDDEN**
+- ❌ Creating new directories outside the established structure
+- ❌ Moving files between component categories
+- ❌ Creating duplicate components
+- ❌ Creating placeholder files
+- ❌ Using external component libraries not in components.json
 
 ## 🐛 Troubleshooting
 

@@ -60,6 +60,64 @@
 
 ---
 
+## 🏗️ **COMPONENT DIRECTORY STRUCTURE ENFORCEMENT**
+
+### **ABSOLUTE FILE STRUCTURE RULES**
+```
+frontend/src/components/
+├── ui/                    # shadcn/ui components ONLY
+│   ├── index.ts          # Export all shadcn/ui components
+│   ├── button/           # Button component (installed via CLI)
+│   ├── card/             # Card component (installed via CLI)
+│   └── ...               # Other shadcn/ui components
+├── magicui/               # Magic UI components ONLY
+│   ├── index.ts          # Export all Magic UI components
+│   ├── interactive-hover-button/  # (installed via CLI)
+│   ├── magic-card/       # (installed via CLI)
+│   └── ...               # Other Magic UI components
+├── handfont/              # Custom HandFont components ONLY
+│   ├── index.ts          # Export all custom components
+│   ├── ProBadge.tsx      # Pro user badge component
+│   ├── DrawingCanvas.tsx # Main drawing interface
+│   ├── Toolbar.tsx       # Drawing tools
+│   └── ...               # Other custom components
+├── layout/                # Layout components ONLY
+│   ├── index.ts          # Export all layout components
+│   ├── Container.tsx     # Responsive container
+│   ├── Sidebar.tsx       # Navigation sidebar
+│   └── ...               # Other layout components
+├── forms/                 # Form components ONLY
+│   ├── index.ts          # Export all form components
+│   ├── Form.tsx          # Form wrapper
+│   ├── FormField.tsx     # Form field wrapper
+│   └── ...               # Other form components
+├── index.ts               # Main export file (re-exports all)
+└── README.md              # Component documentation
+```
+
+### **STRICT DIRECTORY RULES**
+- ✅ **ONLY create files in the EXACT directory specified**
+- ✅ **NEVER create new directories** - use existing structure only
+- ✅ **NEVER move files between directories** - keep in assigned location
+- ✅ **NEVER create duplicate files** - check existing files first
+- ✅ **NEVER create placeholder files** - only create when implementing
+
+### **COMPONENT PLACEMENT RULES**
+1. **shadcn/ui Components** → `frontend/src/components/ui/[component-name]/`
+2. **Magic UI Components** → `frontend/src/components/magicui/[component-name]/`
+3. **Custom HandFont Components** → `frontend/src/components/handfont/[ComponentName].tsx`
+4. **Layout Components** → `frontend/src/components/layout/[ComponentName].tsx`
+5. **Form Components** → `frontend/src/components/forms/[ComponentName].tsx`
+
+### **FILE NAMING ENFORCEMENT**
+- **shadcn/ui**: Use exact names from CLI installation (e.g., `button`, `card`)
+- **Magic UI**: Use exact names from CLI installation (e.g., `interactive-hover-button`)
+- **Custom Components**: Use PascalCase (e.g., `ProBadge.tsx`, `DrawingCanvas.tsx`)
+- **Index Files**: Always named `index.ts` (lowercase)
+- **Type Files**: `ComponentName.types.ts` (PascalCase)
+
+---
+
 ## 📋 **TASK EXECUTION PROCESS**
 
 ### **READ & UNDERSTAND**
@@ -125,6 +183,9 @@
 - ❌ **Implementing custom solutions** when components exist
 - ❌ **Modifying component behavior** beyond their intended use
 - ❌ **Adding new dependencies** not in package.json
+- ❌ **Creating files in wrong directories** - strict placement rules
+- ❌ **Duplicating existing components** - check before creating
+- ❌ **Creating placeholder files** - only implement when ready
 
 ### **MANDATORY COMPONENT USAGE:**
 - ✅ **ONLY use components** from the approved list
@@ -132,6 +193,8 @@
 - ✅ **ONLY use props** documented in components.json
 - ✅ **ONLY use styling** from the design system
 - ✅ **ONLY use animations** from Framer Motion
+- ✅ **ONLY place files** in exact directories specified
+- ✅ **ONLY create files** when implementing functionality
 
 ### **Component Library Priority (STRICT ORDER):**
 1. **shadcn/ui Components** - Use existing components first
@@ -412,6 +475,9 @@ const fontSize = "text-base"; // Design system typography
 8. **NEVER forget documentation** - leave clear notes
 9. **NEVER create new components** - use only approved components
 10. **NEVER modify component behavior** - use as intended
+11. **NEVER create files in wrong directories** - strict placement rules
+12. **NEVER create duplicate files** - check existing files first
+13. **NEVER create placeholder files** - only implement when ready
 
 ---
 

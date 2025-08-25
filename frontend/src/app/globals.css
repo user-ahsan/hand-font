@@ -1,0 +1,565 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 215 16% 47%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 16% 47%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 215 16% 47%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 138 67% 60%;
+    --success-foreground: 210 40% 98%;
+    --warning: 48 96% 60%;
+    --warning-foreground: 210 40% 98%;
+    --info: 199 89% 60%;
+    --info-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 16% 47%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 215 16% 47%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 138 67% 31%;
+    --success-foreground: 210 40% 98%;
+    --warning: 48 96% 31%;
+    --warning-foreground: 210 40% 98%;
+    --info: 199 89% 31%;
+    --info-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+
+  .btn-default {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 py-2 px-4;
+  }
+
+  .btn-outline {
+    @apply border border-input hover:bg-accent hover:text-accent-foreground h-10 py-2 px-4;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 px-4;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground h-10 py-2 px-4;
+  }
+
+  .btn-link {
+    @apply underline-offset-4 hover:underline text-primary h-10 py-2 px-4;
+  }
+
+  .btn-sm {
+    @apply h-9 px-3 rounded-md;
+  }
+
+  .btn-lg {
+    @apply h-11 px-8 rounded-md;
+  }
+
+  .btn-icon {
+    @apply h-10 w-10;
+  }
+
+  .card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  .badge-default {
+    @apply border-transparent bg-primary text-primary-foreground hover:bg-primary/80;
+  }
+
+  .badge-secondary {
+    @apply border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .badge-destructive {
+    @apply border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80;
+  }
+
+  .badge-outline {
+    @apply text-foreground;
+  }
+
+  .alert {
+    @apply relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground;
+  }
+
+  .alert-default {
+    @apply bg-background text-foreground;
+  }
+
+  .alert-destructive {
+    @apply border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-md bg-muted;
+  }
+
+  .separator {
+    @apply shrink-0 bg-border;
+  }
+
+  .separator-horizontal {
+    @apply h-px w-full;
+  }
+
+  .separator-vertical {
+    @apply h-full w-px;
+  }
+
+  .scrollbar {
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted hover:scrollbar-thumb-muted-foreground;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-track-transparent {
+    scrollbar-color: transparent transparent;
+  }
+
+  .scrollbar-thumb-muted {
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+
+  .scrollbar-thumb-muted-foreground {
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+
+  .scrollbar-thumb-muted-foreground:hover {
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+
+  .prose {
+    @apply max-w-none;
+  }
+
+  .prose-headings {
+    @apply text-foreground;
+  }
+
+  .prose-lead {
+    @apply text-muted-foreground;
+  }
+
+  .prose-links {
+    @apply text-primary;
+  }
+
+  .prose-bold {
+    @apply text-foreground;
+  }
+
+  .prose-counters {
+    @apply text-muted-foreground;
+  }
+
+  .prose-bullets {
+    @apply text-muted-foreground;
+  }
+
+  .prose-hr {
+    @apply border-border;
+  }
+
+  .prose-quotes {
+    @apply border-l-border;
+  }
+
+  .prose-quote-borders {
+    @apply border-l-border;
+  }
+
+  .prose-captions {
+    @apply text-muted-foreground;
+  }
+
+  .prose-code {
+    @apply bg-muted text-foreground;
+  }
+
+  .prose-pre-code {
+    @apply bg-muted text-foreground;
+  }
+
+  .prose-pre-bg {
+    @apply bg-muted;
+  }
+
+  .prose-th-borders {
+    @apply border-border;
+  }
+
+  .prose-td-borders {
+    @apply border-border;
+  }
+
+  /* Animation classes aligned with design system */
+  .animate-fast {
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-normal {
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slow {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  .animate-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .animate-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Consistent spacing utilities */
+  .space-0 { margin: 0px; }
+  .space-2 { margin: 2px; }
+  .space-4 { margin: 4px; }
+  .space-6 { margin: 6px; }
+  .space-8 { margin: 8px; }
+  .space-10 { margin: 10px; }
+  .space-12 { margin: 12px; }
+  .space-16 { margin: 16px; }
+  .space-20 { margin: 20px; }
+  .space-24 { margin: 24px; }
+  .space-28 { margin: 28px; }
+  .space-32 { margin: 32px; }
+  .space-40 { margin: 40px; }
+  .space-48 { margin: 48px; }
+  .space-56 { margin: 56px; }
+  .space-64 { margin: 64px; }
+  .space-72 { margin: 72px; }
+  .space-80 { margin: 80px; }
+  .space-96 { margin: 96px; }
+  .space-128 { margin: 128px; }
+  .space-160 { margin: 160px; }
+  .space-192 { margin: 192px; }
+  .space-224 { margin: 224px; }
+  .space-256 { margin: 256px; }
+
+  /* Consistent border radius utilities */
+  .radius-none { border-radius: 0px; }
+  .radius-sm { border-radius: 0.125rem; }
+  .radius-default { border-radius: 0.25rem; }
+  .radius-md { border-radius: 0.375rem; }
+  .radius-lg { border-radius: 0.5rem; }
+  .radius-xl { border-radius: 0.75rem; }
+  .radius-2xl { border-radius: 1rem; }
+  .radius-3xl { border-radius: 1.5rem; }
+  .radius-full { border-radius: 9999px; }
+
+  /* Consistent shadow utilities */
+  .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+  .shadow-default { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+  .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+  .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+  .shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+  .shadow-2xl { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+  .shadow-inner { box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05); }
+  .shadow-none { box-shadow: none; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:start {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:end {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:single-button {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:single-button:start {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:single-button:end {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:vertical {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:vertical {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:vertical {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:vertical {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:vertical:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:vertical:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:vertical:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:vertical:hover {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:vertical:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:vertical:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:vertical:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:vertical:active {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:decrement:vertical:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:start:increment:vertical:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:decrement:vertical:disabled {
+    display: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-button:double-button:end:increment:vertical:disabled {
+    display: none;
+  }
+}

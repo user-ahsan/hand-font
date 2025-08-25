@@ -33,12 +33,21 @@
   },
   "name": "hand-font",
   "version": "1.0.0",
-  "description": "",
+  "description": "HandFont - Create beautiful handwritten fonts from your own handwriting",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "nodemon backend/src/index.ts",
     "dev:client": "npm run dev --prefix frontend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "nodemon backend/src/index.ts",
+    "build": "npm run build --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "start": "npm run start --prefix frontend",
+    "start:frontend": "npm run start --prefix frontend",
+    "install:components": "cd frontend && npm run install:components",
+    "install:components:win": "cd frontend && install-components.bat",
+    "install:components:unix": "cd frontend && chmod +x install-components.sh && ./install-components.sh",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
@@ -46,8 +55,12 @@
     "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["font", "handwriting", "typography", "design", "ai"],
+  "author": "HandFont Team",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
 }

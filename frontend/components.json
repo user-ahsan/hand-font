@@ -1,0 +1,539 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "components": {
+    "ui": {
+      "button": {
+        "name": "Button",
+        "description": "A button component with multiple variants",
+        "variants": ["default", "destructive", "outline", "secondary", "ghost", "link"],
+        "sizes": ["default", "sm", "lg", "icon"],
+        "installation": "npx shadcn@latest add button"
+      },
+      "card": {
+        "name": "Card",
+        "description": "A card component for displaying content",
+        "variants": ["default", "header", "content", "footer"],
+        "installation": "npx shadcn@latest add card"
+      },
+      "input": {
+        "name": "Input",
+        "description": "An input component for form fields",
+        "variants": ["default", "error", "success"],
+        "sizes": ["default", "sm", "lg"],
+        "installation": "npx shadcn@latest add input"
+      },
+      "label": {
+        "name": "Label",
+        "description": "A label component for form fields",
+        "installation": "npx shadcn@latest add label"
+      },
+      "badge": {
+        "name": "Badge",
+        "description": "A badge component for status indicators",
+        "variants": ["default", "secondary", "destructive", "outline"],
+        "installation": "npx shadcn@latest add badge"
+      },
+      "tabs": {
+        "name": "Tabs",
+        "description": "A tabs component for content organization",
+        "installation": "npx shadcn@latest add tabs"
+      },
+      "dialog": {
+        "name": "Dialog",
+        "description": "A dialog component for modals",
+        "installation": "npx shadcn@latest add dialog"
+      },
+      "dropdown-menu": {
+        "name": "Dropdown Menu",
+        "description": "A dropdown menu component",
+        "installation": "npx shadcn@latest add dropdown-menu"
+      },
+      "toast": {
+        "name": "Toast",
+        "description": "A toast component for notifications",
+        "installation": "npx shadcn@latest add toast"
+      },
+      "progress": {
+        "name": "Progress",
+        "description": "A progress component for loading states",
+        "installation": "npx shadcn@latest add progress"
+      },
+      "separator": {
+        "name": "Separator",
+        "description": "A separator component for visual dividers",
+        "installation": "npx shadcn@latest add separator"
+      },
+      "avatar": {
+        "name": "Avatar",
+        "description": "An avatar component for user images",
+        "installation": "npx shadcn@latest add avatar"
+      },
+      "switch": {
+        "name": "Switch",
+        "description": "A switch component for toggles",
+        "installation": "npx shadcn@latest add switch"
+      },
+      "select": {
+        "name": "Select",
+        "description": "A select component for dropdowns",
+        "installation": "npx shadcn@latest add select"
+      },
+      "textarea": {
+        "name": "Textarea",
+        "description": "A textarea component for multi-line text",
+        "installation": "npx shadcn@latest add textarea"
+      },
+      "checkbox": {
+        "name": "Checkbox",
+        "description": "A checkbox component for selections",
+        "installation": "npx shadcn@latest add checkbox"
+      },
+      "radio-group": {
+        "name": "Radio Group",
+        "description": "A radio group component for single choices",
+        "installation": "npx shadcn@latest add radio-group"
+      },
+      "slider": {
+        "name": "Slider",
+        "description": "A slider component for range inputs",
+        "installation": "npx shadcn@latest add slider"
+      },
+      "pagination": {
+        "name": "Pagination",
+        "description": "A pagination component for navigation",
+        "installation": "npx shadcn@latest add pagination"
+      },
+      "table": {
+        "name": "Table",
+        "description": "A table component for data display",
+        "installation": "npx shadcn@latest add table"
+      },
+      "alert": {
+        "name": "Alert",
+        "description": "An alert component for messages",
+        "variants": ["default", "destructive"],
+        "installation": "npx shadcn@latest add alert"
+      },
+      "skeleton": {
+        "name": "Skeleton",
+        "description": "A skeleton component for loading states",
+        "installation": "npx shadcn@latest add skeleton"
+      },
+      "tooltip": {
+        "name": "Tooltip",
+        "description": "A tooltip component for hover information",
+        "installation": "npx shadcn@latest add tooltip"
+      },
+      "popover": {
+        "name": "Popover",
+        "description": "A popover component for contextual content",
+        "installation": "npx shadcn@latest add popover"
+      },
+      "sheet": {
+        "name": "Sheet",
+        "description": "A sheet component for side panels",
+        "installation": "npx shadcn@latest add sheet"
+      },
+      "accordion": {
+        "name": "Accordion",
+        "description": "An accordion component for collapsible content",
+        "installation": "npx shadcn@latest add accordion"
+      },
+      "calendar": {
+        "name": "Calendar",
+        "description": "A calendar component for date selection",
+        "installation": "npx shadcn@latest add calendar"
+      },
+      "command": {
+        "name": "Command",
+        "description": "A command component for search and selection",
+        "installation": "npx shadcn@latest add command"
+      },
+      "navigation-menu": {
+        "name": "Navigation Menu",
+        "description": "A navigation menu component",
+        "installation": "npx shadcn@latest add navigation-menu"
+      },
+      "scroll-area": {
+        "name": "Scroll Area",
+        "description": "A scroll area component for custom scrollbars",
+        "installation": "npx shadcn@latest add scroll-area"
+      },
+      "collapsible": {
+        "name": "Collapsible",
+        "description": "A collapsible component for expandable content",
+        "installation": "npx shadcn@latest add collapsible"
+      }
+    },
+    "magicui": {
+      "interactive-hover-button": {
+        "name": "Interactive Hover Button",
+        "description": "Advanced button with interactive hover effects",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/interactive-hover-button\"",
+        "props": {
+          "text": "string",
+          "className": "string"
+        }
+      },
+      "magic-card": {
+        "name": "Magic Card",
+        "description": "Beautiful gradient card with hover effects",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/magic-card\"",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string",
+          "gradientSize": "number",
+          "gradientColor": "string",
+          "gradientOpacity": "number",
+          "gradientFrom": "string",
+          "gradientTo": "string"
+        }
+      },
+      "text-animate": {
+        "name": "Text Animate",
+        "description": "Text animation with multiple presets",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/text-animate\"",
+        "props": {
+          "children": "string",
+          "className": "string",
+          "delay": "number",
+          "duration": "number",
+          "variants": "Variants",
+          "as": "ElementType",
+          "by": "text | word | character | line",
+          "startOnView": "boolean",
+          "once": "boolean",
+          "animation": "AnimationVariant"
+        }
+      },
+      "hyper-text": {
+        "name": "Hyper Text",
+        "description": "Hover text scramble effects",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/hyper-text\"",
+        "props": {
+          "children": "string",
+          "className": "string",
+          "duration": "number",
+          "delay": "number",
+          "as": "React.ElementType",
+          "startOnView": "boolean",
+          "animateOnHover": "boolean",
+          "characterSet": "string[]"
+        }
+      },
+      "shimmer-button": {
+        "name": "Shimmer Button",
+        "description": "Button with shimmer loading effects",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/shimmer-button\"",
+        "props": {
+          "shimmerColor": "string",
+          "shimmerSize": "string",
+          "borderRadius": "string",
+          "shimmerDuration": "string",
+          "background": "string",
+          "className": "string",
+          "children": "React.ReactNode"
+        }
+      },
+      "terminal": {
+        "name": "Terminal",
+        "description": "Command-line style animations",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/terminal\"",
+        "props": {
+          "children": "ReactNode",
+          "className": "string",
+          "sequence": "boolean",
+          "startOnView": "boolean"
+        }
+      },
+      "bento-grid": {
+        "name": "Bento Grid",
+        "description": "Modern grid layout system",
+        "installation": "npx shadcn@latest add \"https://magicui.design/r/bento-grid\""
+      }
+    },
+    "handfont": {
+      "pro-badge": {
+        "name": "Pro Badge",
+        "description": "Pro user indicator badge",
+        "location": "@/components/handfont/ProBadge.tsx",
+        "props": {
+          "variant": "default | premium | enterprise",
+          "className": "string"
+        }
+      },
+      "quota-indicator": {
+        "name": "Quota Indicator",
+        "description": "Usage limits display component",
+        "location": "@/components/handfont/QuotaIndicator.tsx",
+        "props": {
+          "current": "number",
+          "limit": "number",
+          "type": "fonts | storage | api",
+          "className": "string"
+        }
+      },
+      "font-preview-card": {
+        "name": "Font Preview Card",
+        "description": "Font preview display component",
+        "location": "@/components/handfont/FontPreviewCard.tsx",
+        "props": {
+          "font": "Font",
+          "previewText": "string",
+          "className": "string"
+        }
+      },
+      "character-grid": {
+        "name": "Character Grid",
+        "description": "Glyph progress tracker component",
+        "location": "@/components/handfont/CharacterGrid.tsx",
+        "props": {
+          "characters": "Character[]",
+          "onCharacterClick": "function",
+          "className": "string"
+        }
+      },
+      "drawing-canvas": {
+        "name": "Drawing Canvas",
+        "description": "Main drawing interface component",
+        "location": "@/components/handfont/DrawingCanvas.tsx",
+        "props": {
+          "width": "number",
+          "height": "number",
+          "onDraw": "function",
+          "className": "string"
+        }
+      },
+      "toolbar": {
+        "name": "Toolbar",
+        "description": "Drawing tools component",
+        "location": "@/components/handfont/Toolbar.tsx",
+        "props": {
+          "tools": "Tool[]",
+          "activeTool": "string",
+          "onToolChange": "function",
+          "className": "string"
+        }
+      },
+      "brush-selector": {
+        "name": "Brush Selector",
+        "description": "Brush type selection component",
+        "location": "@/components/handfont/BrushSelector.tsx",
+        "props": {
+          "brushes": "Brush[]",
+          "selectedBrush": "string",
+          "onBrushChange": "function",
+          "className": "string"
+        }
+      },
+      "color-picker": {
+        "name": "Color Picker",
+        "description": "Color selection component",
+        "location": "@/components/handfont/ColorPicker.tsx",
+        "props": {
+          "color": "string",
+          "onColorChange": "function",
+          "className": "string"
+        }
+      },
+      "eraser-tool": {
+        "name": "Eraser Tool",
+        "description": "Eraser functionality component",
+        "location": "@/components/handfont/EraserTool.tsx",
+        "props": {
+          "size": "number",
+          "onSizeChange": "function",
+          "className": "string"
+        }
+      },
+      "undo-redo": {
+        "name": "Undo Redo",
+        "description": "History management component",
+        "location": "@/components/handfont/UndoRedo.tsx",
+        "props": {
+          "canUndo": "boolean",
+          "canRedo": "boolean",
+          "onUndo": "function",
+          "onRedo": "function",
+          "className": "string"
+        }
+      },
+      "character-navigator": {
+        "name": "Character Navigator",
+        "description": "Next/Previous navigation component",
+        "location": "@/components/handfont/CharacterNavigator.tsx",
+        "props": {
+          "currentIndex": "number",
+          "totalCharacters": "number",
+          "onPrevious": "function",
+          "onNext": "function",
+          "className": "string"
+        }
+      },
+      "progress-tracker": {
+        "name": "Progress Tracker",
+        "description": "Completion progress component",
+        "location": "@/components/handfont/ProgressTracker.tsx",
+        "props": {
+          "completed": "number",
+          "total": "number",
+          "className": "string"
+        }
+      },
+      "export-button": {
+        "name": "Export Button",
+        "description": "Font export functionality component",
+        "location": "@/components/handfont/ExportButton.tsx",
+        "props": {
+          "fontId": "string",
+          "formats": "string[]",
+          "onExport": "function",
+          "className": "string"
+        }
+      },
+      "preview-panel": {
+        "name": "Preview Panel",
+        "description": "Font preview display component",
+        "location": "@/components/handfont/PreviewPanel.tsx",
+        "props": {
+          "font": "Font",
+          "previewText": "string",
+          "className": "string"
+        }
+      }
+    },
+    "layout": {
+      "container": {
+        "name": "Container",
+        "description": "Responsive container component",
+        "location": "@/components/layout/Container.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "maxWidth": "string",
+          "className": "string"
+        }
+      },
+      "sidebar": {
+        "name": "Sidebar",
+        "description": "Navigation sidebar component",
+        "location": "@/components/layout/Sidebar.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "isOpen": "boolean",
+          "onClose": "function",
+          "className": "string"
+        }
+      },
+      "header": {
+        "name": "Header",
+        "description": "Page header component",
+        "location": "@/components/layout/Header.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      },
+      "footer": {
+        "name": "Footer",
+        "description": "Page footer component",
+        "location": "@/components/layout/Footer.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      },
+      "navbar": {
+        "name": "Navbar",
+        "description": "Navigation bar component",
+        "location": "@/components/layout/Navbar.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      }
+    },
+    "forms": {
+      "form": {
+        "name": "Form",
+        "description": "Form wrapper component",
+        "location": "@/components/forms/Form.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "onSubmit": "function",
+          "className": "string"
+        }
+      },
+      "form-field": {
+        "name": "Form Field",
+        "description": "Form field wrapper component",
+        "location": "@/components/forms/FormField.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "name": "string",
+          "className": "string"
+        }
+      },
+      "form-item": {
+        "name": "Form Item",
+        "description": "Form item wrapper component",
+        "location": "@/components/forms/FormItem.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      },
+      "form-label": {
+        "name": "Form Label",
+        "description": "Form label component",
+        "location": "@/components/forms/FormLabel.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      },
+      "form-control": {
+        "name": "Form Control",
+        "description": "Form control wrapper component",
+        "location": "@/components/forms/FormControl.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      },
+      "form-message": {
+        "name": "Form Message",
+        "description": "Form message component",
+        "location": "@/components/forms/FormMessage.tsx",
+        "props": {
+          "children": "React.ReactNode",
+          "className": "string"
+        }
+      }
+    }
+  },
+  "installation": {
+    "shadcn": "npx shadcn@latest add [component-name]",
+    "magicui": "npx shadcn@latest add \"https://magicui.design/r/[component-name]\"",
+    "custom": "Create component file in appropriate directory"
+  },
+  "usage": {
+    "import": "Import components from their respective directories",
+    "props": "Use props as defined in the component specifications",
+    "styling": "Use Tailwind CSS classes and CSS variables from design.json",
+    "variants": "Use predefined variants for consistent styling"
+  }
+}
